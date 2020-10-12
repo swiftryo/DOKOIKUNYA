@@ -16,7 +16,11 @@
 </tr>
 <tr class="brown-border">
 <td class="active">画像</td>
-<td><%= @user.profile_image %></td>
+<td><%#= @user.profile_image %></td>
+</tr>
+<tr class="brown-border">
+<td class="active">お気に入り一覧</td>
+<td><%= link_to "お気に入り一覧", product_index_favorites_path(@user) %></td>
 </tr>
 </table>
 

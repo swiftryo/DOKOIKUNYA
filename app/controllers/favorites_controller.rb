@@ -13,4 +13,14 @@ class FavoritesController < ApplicationController
     favorite.destroy
     redirect_to request.referer
   end
+
+  def index
+    @user = current_user
+    @favorites = Favorite.where(user_id: @user.id).all
+  end
+
+  def show
+    @product = Product.find(params[:product_id])
+    @favorites = Favorite.where(product_id: @product.id).all
+  end
 end

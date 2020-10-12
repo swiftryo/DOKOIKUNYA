@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get "users/withdraw" => "users#withdraw", as: 'users_withdraw'
   resources :products do
     resources :reviews, only: [:index, :create]
-    resource :favorites, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy, :show]
+    get "index_favorites" => "favorites#index"
   end
   resources :users
 

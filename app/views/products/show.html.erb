@@ -20,6 +20,8 @@
               <% end %>
             <% end %>
           </td>
+<h4>お気に入りした人</h4>
+<%= link_to "お気に入りした人", product_favorites_path(@product) %>
 
 <h4>登録日</h4>
 <%= @product.created_at.strftime('%Y/%m/%d') %>
