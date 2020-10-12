@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :name
       t.integer :prefecture_code
-      t.boolean :is_deleted
+      t.boolean :is_deleted, default: false
       t.string :biography
       t.string :profile_image
 
