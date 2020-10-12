@@ -1,2 +1,34 @@
 <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+<h2>MYPAGE</h2>
+<table class="table customer-show">
+<tr class="brown-border">
+<td class="active">名前</td>
+<td><%= @user.name %></td>
+</tr>
+<tr class="brown-border">
+<td class="active">自己紹介</td>
+<td><%= @user.biography %></td>
+</tr>
+<tr class="brown-border">
+<td class="active">在住</td>
+<td><%= @user.prefecture_code %></td>
+</tr>
+<tr class="brown-border">
+<td class="active">画像</td>
+<td><%= @user.profile_image %></td>
+</tr>
+</table>
+
+<div>
+<table align="right">
+<tbody>
+<tr><% if @user.id == current_user.id %>
+<td><%= link_to  "編集する", edit_user_path(@user), class: "btn btn-success" %></td>
+<td><%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-primary" %></td>
+<td><%= link_to "退会する", users_withdraw_path, class: "btn btn-danger" %></td>
+	<% end %>
+</tr>
+</tbody>
+</table>
+</div> 
