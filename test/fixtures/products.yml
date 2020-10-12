@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  genre_id: 1
+  name: MyString
+  introduction: MyText
+  image_id: MyString
+  status: false
+  prefecture_code: 1
+  city: MyString
+  street: MyString
+
+two:
+  genre_id: 1
+  name: MyString
+  introduction: MyText
+  image_id: MyString
+  status: false
+  prefecture_code: 1
+  city: MyString
+  street: MyString
