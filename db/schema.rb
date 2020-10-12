@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_12_082755) do
+ActiveRecord::Schema.define(version: 2020_10_12_090538) do
 
   create_table "products", force: :cascade do |t|
     t.integer "genre_id"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_082755) do
     t.datetime "remember_created_at"
     t.string "name"
     t.integer "prefecture_code"
-    t.boolean "is_deleted"
+    t.boolean "is_deleted", default: false
     t.string "biography"
     t.string "profile_image"
     t.datetime "created_at", null: false
