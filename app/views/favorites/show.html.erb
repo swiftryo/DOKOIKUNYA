@@ -1,0 +1,7 @@
+<h2>お気に入り登録ユーザー一覧(<%= @favorites.length %>人)</h2>
+
+<% @favorites.each do |favorite| %>
+	<% @user_id = favorite.user_id %>
+	<% user = User.find(@user_id) %>
+	<div><%= link_to user.name, user_path(user) %></div>
+<% end %>

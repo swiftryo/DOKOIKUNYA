@@ -1,2 +1,45 @@
 <h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h1>場所一覧</h1>
+<% @products.each do |product| %>
+
+	<p>画像</p>
+	<%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg' %>
+	<p>商品名</p>
+	<span>
+		<%= link_to product.name, product_path(product.id) %>
+	</span>
+
+
+		  <td>
+            <% if product.favorited_by?(current_user) %>
+              <%= link_to product_favorites_path(product), method: :delete do %>
+                <span class="glyphicon glyphicon-heart"><%= product.favorites.count%></span>
+              <% end %>
+            <% else %>
+              <%= link_to product_favorites_path(product), method: :post do %>
+                <span class="glyphicon glyphicon-heart-empty"><%= product.favorites.count %></span>
+              <% end %>
+            <% end %>
+          </td>
+
+		<div class="content average-score">
+			<div class="star-rating">
+				<div class="star-rating-front" style="width: <%= product.review_score_percentage %>%">★★★★★</div>
+				<div class="star-rating-back">★★★★★</div>
+			</div>
+			<div class="average-score-display">
+				<%= product.avg_score %>点 (<%= product.reviews.count %>件のレビュー)
+			</div>
+		</div>
+	</div>
+
+	<%= link_to product_reviews_path(product) do %>
+		レビューを見る
+	<% end %>
+
+	<%= link_to product_path(product) do %>
+		レビューを書く
+	<% end %>
+
+
+<% end %>

@@ -1,2 +1,61 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<h2>場所詳細</h2>
+
+<h4>画像</h4>
+<%= attachment_image_tag @product, :image, :fill, 300, 300, format: 'jpeg' %>
+
+<h4>場所の名前</h4>
+<%= @product.name %>
+
+<h4>場所の説明</h4>
+<%= @product.introduction %>
+
+          <td>
+            <% if @product.favorited_by?(current_user) %>
+              <%= link_to product_favorites_path(@product), method: :delete do %>
+                <span class="glyphicon glyphicon-heart"><%= @product.favorites.count%></span>
+              <% end %>
+            <% else %>
+              <%= link_to product_favorites_path(@product), method: :post do %>
+                <span class="glyphicon glyphicon-heart-empty"><%= @product.favorites.count %></span>
+              <% end %>
+            <% end %>
+          </td>
+<h4>お気に入りした人</h4>
+<%= link_to "お気に入りした人", product_favorites_path(@product) %>
+
+<h4>登録日</h4>
+<%= @product.created_at.strftime('%Y/%m/%d') %>
+
+<h4>ジャンル</h4>
+<%#= @product.genre.genre_name %>
+
+<h4>住所</h4>
+<%= @product.prefecture_code %>
+<%= @product.city %>
+<%= @product.street %>
+
+<h4>現在の状況</h4>
+<% if @product.status? %>
+現在もあります
+<% else %>
+現在はもうありません
+<% end %>
+
+<div class="card-content">
+	<div class="content average-score">
+		<div class="star-rating">
+			<div class="star-rating-front" style="width: <%= @product.review_score_percentage %>%">★★★★★</div>
+			<div class="star-rating-back">★★★★★</div>
+		</div>
+		<div class="average-score-display">
+			<%= link_to product_reviews_path(@product) do %>
+			<%= @product.avg_score %>点 (<%= @product.reviews.count %>件のレビュー)
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<%= render 'reviews/form', review: @review, product: @product %>
+
+<%= link_to "場所編集", edit_product_path(@product) %>
+<%= link_to "場所削除", product_path(@product), method: :delete, "data-confirm" => "本当に削除しますか？" %>

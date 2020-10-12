@@ -1,22 +1,22 @@
 Rails.application.routes.draw do
-  get 'reviews/index'
-  get 'reviews/create'
-  get 'reviews/destroy'
-  get 'products/index'
-  get 'products/show'
-  get 'products/about'
-  get 'products/top'
-  get 'products/new'
-  get 'products/create'
-  get 'products/edit'
-  get 'products/update'
-  get 'products/destroy'
-  get 'users/index'
-  get 'users/edit'
-  get 'users/update'
-  get 'users/show'
-  get 'users/withdraw'
-  get 'users/unsubscribe'
   devise_for :users
+  root 'products#top'
+  get 'about' => 'products#about', as: 'products_about'
+
+  patch "users/usubscribe" => "users#usubscribe", as: 'users_usubscribe'
+  get "users/withdraw" => "users#withdraw", as: 'users_withdraw'
+  resources :products do
+    resources :reviews, only: [:index, :create]
+    resource :favorites, only: [:create, :destroy, :show]
+    get "index_favorites" => "favorites#index"
+  end
+  resources :users
+
+  get "search" => "products#search", as:"users_search"
+  resources :genres, only: [:index, :create, :edit, :update]
+
+
+  #残りお気に入り、チャット、
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

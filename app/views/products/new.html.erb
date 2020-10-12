@@ -1,2 +1,23 @@
 <h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<h3>場所新規登録</h3>
+<%= form_for(@product) do |f| %>
+<div>
+<h4>画像</h4>
+<%= f.attachment_field :image %>
+<h4>商品名</h4>
+<%= f.text_field :name %>
+<h4>商品説明</h4>
+<%= f.text_area :introduction %>
+<h4>ジャンル</h4>
+<h4>都道府県</h4>
+<%= f.select :prefecture_code, User.prefecture_codes.keys, {} %>
+<h4>市町村</h4>
+<%= f.text_field :city %>
+<h4>番地</h4>
+<%= f.text_field :street %>
+	<h4>現在の状態</h4>
+	<%= f.select :status, {"現在もあります" => :true, "現在はありません"=> :false } %>
+	<%= f.submit "新規登録" %>
+<% end %>
+</div> 
+

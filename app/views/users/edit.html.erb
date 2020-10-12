@@ -1,2 +1,35 @@
 <h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h2>登録情報編集</h2>
+
+<%= form_for(@user) do |f| %>
+ <div class="row">
+    <div class="col-md-3"><%= f.label :名前 %></div>
+    <div class="col-md-9"><%= f.text_field :name %></div>
+  </div><br>
+
+  <div class="row">
+    <div class="col-md-3"><%= f.label :メールアドレス %></div>
+    <div class="col-md-9"><%= f.text_field :email %></div>
+    <div class="col"></div>
+  </div><br>
+
+  <div class="row">
+    <div class="col-md-3"><%= f.label :自己紹介 %></div>
+    <div class="col-md-9"><%= f.text_area :biography %></div>
+    <div class="col"></div>
+  </div><br>
+
+  <div class="row">
+    <div class="col-md-3"><%= f.label :都道府県 %></div>
+    <div class="col-md-9"><%= f.select :prefecture_code, User.prefecture_codes.keys, {} %></div>
+    <div class="col"></div>
+  </div><br>
+
+
+  <div class="row">
+    <div class="col-md-3"><%= f.label :写真 %></div>
+    <div class="col-md-9"><%#= f.text_field :tel %></div>
+    <div class="col"></div>
+  </div><br>
+    <%= f.submit "変更を保存する", class: "btn btn-primary" %>
+  <% end %> 
