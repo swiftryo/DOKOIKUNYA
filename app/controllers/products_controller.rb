@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   def index
     @products = Product.all
   end
@@ -52,5 +54,12 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :introduction, :image, :status, :genre_id, :genre_name, :prefecture_code, :city, :street)
+  end
+
+  def ensure_correct_user
+    @product = Product.find(params[:id])
+    unless @product.user == current_user
+      redirect_to products_path
+    end
   end
 end

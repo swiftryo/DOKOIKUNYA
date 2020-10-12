@@ -9,6 +9,19 @@
 		<%= link_to product.name, product_path(product.id) %>
 	</span>
 
+
+		  <td>
+            <% if product.favorited_by?(current_user) %>
+              <%= link_to product_favorites_path(product), method: :delete do %>
+                <span class="glyphicon glyphicon-heart"><%= product.favorites.count%></span>
+              <% end %>
+            <% else %>
+              <%= link_to product_favorites_path(product), method: :post do %>
+                <span class="glyphicon glyphicon-heart-empty"><%= product.favorites.count %></span>
+              <% end %>
+            <% end %>
+          </td>
+
 		<div class="content average-score">
 			<div class="star-rating">
 				<div class="star-rating-front" style="width: <%= product.review_score_percentage %>%">★★★★★</div>
@@ -27,7 +40,6 @@
 	<%= link_to product_path(product) do %>
 		レビューを書く
 	<% end %>
-
 
 
 <% end %>

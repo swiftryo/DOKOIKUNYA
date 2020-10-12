@@ -9,6 +9,18 @@
 <h4>場所の説明</h4>
 <%= @product.introduction %>
 
+          <td>
+            <% if @product.favorited_by?(current_user) %>
+              <%= link_to product_favorites_path(@product), method: :delete do %>
+                <span class="glyphicon glyphicon-heart"><%= @product.favorites.count%></span>
+              <% end %>
+            <% else %>
+              <%= link_to product_favorites_path(@product), method: :post do %>
+                <span class="glyphicon glyphicon-heart-empty"><%= @product.favorites.count %></span>
+              <% end %>
+            <% end %>
+          </td>
+
 <h4>登録日</h4>
 <%= @product.created_at.strftime('%Y/%m/%d') %>
 
