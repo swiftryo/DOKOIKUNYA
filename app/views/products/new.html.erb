@@ -10,7 +10,7 @@
 <%= f.text_area :introduction %>
 <h4>ジャンル</h4>
 <h4>都道府県</h4>
-<%= f.select :prefecture_code, User.prefecture_codes.keys, {} %>
+<%= f.select :prefecture_code, Product.prefecture_codes.keys, {} %>
 <h4>市町村</h4>
 <%= f.text_field :city %>
 <h4>番地</h4>

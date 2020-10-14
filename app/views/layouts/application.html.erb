@@ -26,20 +26,28 @@
     <nav>
       <ul class="nav-list">
         <% if user_signed_in? %>
+        <!-- ログイン後 -->
           <li class="nav-list-item">ようこそ <%= current_user.name %> さん</p>
+          <li class="nav-list-item"><%= link_to "Home", root_path %></li>
+          <li class="nav-list-item"><%= link_to "about", products_about_path %></li>
+          <li class="nav-list-item"><%= link_to "場所一覧", products_path %></li>
           <li class="nav-list-item"><%= link_to "マイページ", user_path(current_user.id) %></li>
-        <% end %>
+          <li class="nav-list-item"><%= link_to "お問い合わせ", "#" %></li>
+          <li class="nav-list-item"><%= link_to "会員一覧", users_path %></li>
+          <li class="nav-list-item"><%= link_to "商品新規登録", new_product_path %></li>
+          <li class="nav-list-item"><%= link_to "サーチ", "#" %></li>
+          <li class="nav-list-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        <!-- ログインしていない時 -->
         <li class="nav-list-item"><%= link_to "Home", root_path %></li>
         <li class="nav-list-item"><%= link_to "about", products_about_path %></li>
         <li class="nav-list-item"><%= link_to "新規登録", new_user_registration_path %></li>
         <li class="nav-list-item"><%= link_to "簡単ログイン", "#" %></li>
         <li class="nav-list-item"><%= link_to "ログイン", new_user_session_path %></li>
-        <li class="nav-list-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-        <li class="nav-list-item"><%= link_to "場所一覧", products_path %></li>
+        <li class="nav-list-item"><%#= link_to "場所一覧", products_path %></li>
         <li class="nav-list-item"><%= link_to "サーチ", "#" %></li>
         <li class="nav-list-item"><%= link_to "お問い合わせ", "#" %></li>
-        <li class="nav-list-item"><%= link_to "商品新規登録", new_product_path %></li>
-        <li class="nav-list-item"><%= link_to "会員一覧", users_path %></li>
+        <% end %>
       </ul>
     </nav>
 

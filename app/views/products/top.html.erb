@@ -1,2 +1,18 @@
-<h1>Products#top</h1>
-<p>Find me in app/views/products/top.html.erb</p>
+
+<% @recommendation.each do |product| %>
+<% if user_signed_in? %>
+<%= link_to product_path(product) do %>
+<%= attachment_image_tag product, :image, :fill, 200, 200, fallback: "no_image.jpg", size:"200x200", class: "img-rounded" %>
+<p><%= product.name.truncate(12, omission: '...') %></p>
+<p><%= product.prefecture_code %></p>
+
+<% end %>
+
+
+
+<% end %>
+
+<% end %>
+<p><%= link_to "Read more▶️", products_path %></p>
+
+<%= link_to 'ゲストログイン（閲覧用）', products_guest_sign_in_path, method: :post %>

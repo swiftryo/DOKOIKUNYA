@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'products#top'
   get 'about' => 'products#about', as: 'products_about'
+  post 'products/guest_sign_in', to: 'products#new_guest'
 
   patch "users/usubscribe" => "users#usubscribe", as: 'users_usubscribe'
   get "users/withdraw" => "users#withdraw", as: 'users_withdraw'
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
 
   get "search" => "products#search", as:"users_search"
   resources :genres, only: [:index, :create, :edit, :update]
-
+  
 
   #残りお気に入り、チャット、
 
