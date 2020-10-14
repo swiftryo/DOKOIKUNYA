@@ -13,9 +13,11 @@ Rails.application.routes.draw do
   end
   resources :users
 
-  resources :genres, only: [:index, :create, :edit, :update]
+  # resources :genres, only: [:index, :create, :edit, :update]
   get "search" => "users#search"
-
+  get 'inquiry' => 'inquiry#index'
+  post 'inquiry/confirm' => 'inquiry#confirm'
+  post 'inquiry/thanks' => 'inquiry#thanks'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
