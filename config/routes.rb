@@ -13,11 +13,9 @@ Rails.application.routes.draw do
   end
   resources :users
 
-  get "search" => "products#search", as:"users_search"
   resources :genres, only: [:index, :create, :edit, :update]
-  
+  get "search" => "users#search"
 
-  #残りお気に入り、チャット、
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
