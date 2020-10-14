@@ -25,8 +25,16 @@
 
     <nav>
       <ul class="nav-list">
+
         <% if user_signed_in? %>
         <!-- ログイン後 -->
+        <!-- サーチ機能ユーザーと場所を検索可 -->
+        <%= form_tag(search_path, :method => 'get') do %>
+        <%= select_tag(:option, options_for_select([["ユーザー", "1"],["場所", "2"]])) %>
+        <%= text_field_tag :search %>
+        <%= submit_tag 'Search' %>
+        <% end %>
+        
           <li class="nav-list-item">ようこそ <%= current_user.name %> さん</p>
           <li class="nav-list-item"><%= link_to "Home", root_path %></li>
           <li class="nav-list-item"><%= link_to "about", products_about_path %></li>

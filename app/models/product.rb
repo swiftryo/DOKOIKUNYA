@@ -35,4 +35,12 @@ class Product < ApplicationRecord
       0.0
     end
   end
+
+  def Product.search(search, user_or_product)
+    if user_or_product == "2"
+     Product.where(['name LIKE ?', "%#{search}%"])
+    else
+     Product.all
+    end
+  end
 end

@@ -29,7 +29,12 @@ class UsersController < ApplicationController
   end
 
   def search
-
+    @user_or_product = params[:option]
+    if @user_or_product == "1"
+       @users = User.search(params[:search], @user_or_product)
+    else
+       @products = Product.search(params[:search], @user_or_product)
+    end
   end
 
 
