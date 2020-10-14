@@ -25,4 +25,13 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
+
+
+  def User.search(search, user_or_product)
+    if user_or_product == "1"
+       User.where(['name LIKE ?', "%#{search}%"])
+    else
+       User.all
+    end
+  end
 end

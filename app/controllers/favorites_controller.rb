@@ -23,4 +23,10 @@ class FavoritesController < ApplicationController
     @product = Product.find(params[:product_id])
     @favorites = Favorite.where(product_id: @product.id).all
   end
+
+  private
+
+  # def set_product
+  #   @product = Product.find(params[:product_id])
+  # end
 end
