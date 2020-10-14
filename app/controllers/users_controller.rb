@@ -32,8 +32,10 @@ class UsersController < ApplicationController
     @user_or_product = params[:option]
     if @user_or_product == "1"
        @users = User.search(params[:search], @user_or_product)
-    else
+    elsif @user_or_product == "2"
        @products = Product.search(params[:search], @user_or_product)
+    else
+      @prefecture_code = Product.search(params[:search], @user_or_product)
     end
   end
 

@@ -6,7 +6,7 @@
         <thead>
             <tr>
                 <th></th>
-                <th><%= user.name %> </th>
+                <th><%= link_to user.name, user_path(user) %></th>
             </tr>
         </thead>
         <% end %>
@@ -19,7 +19,21 @@
         <thead>
             <tr>
                 <th></th>
+                <th><%= link_to product.name, product_path(product.id) %></th>
+            </tr>
+        </thead>
+    <% end %>
+    </table>
+<!-- 現在使用不可　たぶん使えないので別の検索歩法を考える　ちなみにenumの数字でなら検索できる　データ型を変えないとたぶん無理 -->
+    <% elsif @user_or_product == "3" %>
+    <h2>都道府県別場所</h2>
+    <table>
+    <% @prefecture_code.each do |product| %>
+        <thead>
+            <tr>
+                <th></th>
                 <th><%= product.name %></th>
+                <th><%= product.prefecture_code %></th>
             </tr>
         </thead>
     <% end %>

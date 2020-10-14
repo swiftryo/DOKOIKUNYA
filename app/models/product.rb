@@ -39,6 +39,8 @@ class Product < ApplicationRecord
   def Product.search(search, user_or_product)
     if user_or_product == "2"
      Product.where(['name LIKE ?', "%#{search}%"])
+    elsif user_or_product == "3"
+     Product.where(['prefecture_code LIKE ?', "%#{search}%"])
     else
      Product.all
     end
