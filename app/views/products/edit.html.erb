@@ -1,21 +1,31 @@
-<h1>Products#edit</h1>
-<h1>編集画面</h1>
-<%= form_for(@product) do |f| %>
-<h4>画像</h4>
-<%= f.attachment_field :image %>
-<h4>商品名</h4>
-<%= f.text_field :name %>
-<h4>商品説明</h4>
-<%= f.text_area :introduction %>
-<h4>ジャンル</h4>
-<h4>都道府県</h4>
-<%= f.select :prefecture_code, User.prefecture_codes.keys, {} %>
-<h4>市町村</h4>
-<%= f.text_field :city %>
-<h4>番地</h4>
-<%= f.text_field :street %>
+<div class="container">
+	<div class="row">
+	<h1>編集画面</h1>
+	<%= form_for(@product) do |f| %>
+		<div class="col-xs-4">
+			<h4>画像</h4>
+			<%= attachment_image_tag @product, :image, size: "300x300", format: 'jpeg', fallback: "no_data.jpg", size: "200x200" %><br><br>
+			<%= f.attachment_field :image %>
+		</div>
+		<div class="col-xs-8">
+			<h4>場所名</h4>
+			<%= f.text_field :name %>
+			<h4>場所説明</h4>
+			<%= f.text_area :introduction %>
+			<h4>ジャンル</h4>
+			<h4>都道府県</h4>
+			<%= f.select :prefecture_code, User.prefecture_codes.keys, {} %>
+			<h4>市町村</h4>
+			<%= f.text_field :city %>
+			<h4>番地</h4>
+			<%= f.text_field :street %>
 
-<h4>現在の状況</h4>
-<%= f.select :status, {"現在もあります" => "true", "現在はありません" => "false"} %>
-<%= f.submit "変更を保存" %>
-<% end %> 
+			<h4>現在の状況</h4>
+			<%= f.select :status, {"現在もあります" => "true", "現在はありません" => "false"} %><br><br>
+			<div class="button">
+				<%= f.submit "変更を保存" %>
+			</div>
+	<% end %> 
+		</div>
+	</div>
+</div>
