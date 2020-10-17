@@ -3,13 +3,15 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="container-fluid">
-    <div class="row">
+     <div class="row">
         <div class="col-sm-3">
         <%= f.label :名前 %><br />
         </div>
         <div class="col-sm-9">
         <%= f.text_field :name, :placeholder => "ぽんちゃん", autofocus: true, autocomplete: "name" %>
         </div>
+      </div><br>
+
 
       <div class="row">
         <div class="col-sm-3">
@@ -51,7 +53,6 @@
       <div class="actions">
         <%= f.submit "新規登録" %>
       </div>
-    </div>
 <% end %>
 
 <div>
