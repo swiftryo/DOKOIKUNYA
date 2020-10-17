@@ -3,5 +3,5 @@
 <% @favorites.each do |favorite| %>
 	<% @user_id = favorite.user_id %>
 	<% user = User.find(@user_id) %>
-	<div><%= link_to user.name, user_path(user) %></div>
+	<li><%= link_to user.name, user_path(user) %></li><br>
 <% end %>

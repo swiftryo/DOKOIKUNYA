@@ -28,6 +28,17 @@ class UsersController < ApplicationController
       redirect_to root_path
   end
 
+  def search
+    @user_or_product = params[:option]
+    if @user_or_product == "1"
+       @users = User.search(params[:search], @user_or_product)
+    elsif @user_or_product == "2"
+       @products = Product.search(params[:search], @user_or_product)
+    else
+      @prefecture_code = Product.search(params[:search], @user_or_product)
+    end
+  end
+
 
   private
   def user_params

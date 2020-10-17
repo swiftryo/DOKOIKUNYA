@@ -1,8 +1,9 @@
-<h2>ブックマーク一覧</h2>
+<h2>お気に入り一覧</h2>
 
 <% @favorites.each do |favorite| %>
 	<% product = Product.find(favorite.product_id) %>
-	<div><%= link_to product.name, product_path(product) %></div>
-	<div><%= link_to "ブックマークから削除", product_favorites_path(favorite), method: :delete %></div>
+	<li><%= link_to product.name, product_path(product) %></li>
+	<div><%#= link_to "ブックマークから削除", product_favorites_path(favorite), method: :delete %></div><br>
+<!-- エラー中 -->
 
 <% end %>

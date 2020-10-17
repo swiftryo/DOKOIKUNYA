@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  # before_action :authenticate_user!
+  # before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   def index
     @products = Product.all.includes(:user)
   end
@@ -14,6 +14,8 @@ class ProductsController < ApplicationController
   end
 
   def top
+    @recommendation = Product.where(status: "true" ).limit(4).order(created_at: :desc)
+
   end
 
   def new
@@ -48,6 +50,14 @@ class ProductsController < ApplicationController
     product = Product.find(params[:id])
     product.destroy
     redirect_to products_path
+  end
+
+  def new_guest
+    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。よろしくお願いします！'
   end
 
   private
