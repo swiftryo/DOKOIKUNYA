@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root 'products#top'
   get 'about' => 'products#about', as: 'products_about'
   post 'products/guest_sign_in', to: 'products#new_guest'
-
   patch "users/usubscribe" => "users#usubscribe", as: 'users_usubscribe'
   get "users/withdraw" => "users#withdraw", as: 'users_withdraw'
   resources :products do
@@ -12,6 +11,7 @@ Rails.application.routes.draw do
     get "index_favorites" => "favorites#index"
   end
   resources :users
+  resources :relationships, only: [:create, :destroy]
 
   # resources :genres, only: [:index, :create, :edit, :update]
   get "search" => "users#search"
