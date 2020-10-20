@@ -1,42 +1,40 @@
-<header>
-  <h1 class="headline">
-  <%= link_to "DOKOIKUNYA", root_path %>
-  </h1>
-  <div class="social">
-    <i class="fa fa-facebook-square"></i>
-    <i class="fa fa-twitter-square"></i>
-    <i class="fa fa-instagram"></i>
-  </div>
-</header>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= link_to "DOKOIKUNYA", root_path, {class: "navbar-brand js-scroll-trigger"} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10">
+      <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+        <li class="nav-item">ようこそ♪ <%= current_user.name %> さん</li>
+        <li class="nav-item"><%= link_to "ABOUT", products_about_path ,class:"nav-link js-scroll-trigger" %></li>
+        <li class="nav-item"><%= link_to "SPOT", products_path ,class:"nav-link js-scroll-trigger" %></li>
+        <li class="nav-item"><%= link_to "MY PAGE", user_path(current_user.id) ,class:"nav-link js-scroll-trigger" %></li>
+        <li class="nav-item"><%= link_to "MEMBER", users_path ,class:"nav-link js-scroll-trigger" %></li>
+        <li class="nav-item"><%= link_to "CONTACT", inquiry_path ,class:"nav-link js-scroll-trigger" %></li>
+        <li class="nav-item"><%= link_to "LOGOUT", destroy_user_session_path, method: :delete ,class:"nav-link js-scroll-trigger" %></li>
+        <div class="row">
+        <li class="nav-item" >
+          <%= form_tag(search_path, :method => 'get') do %>
+            <%= select_tag(:option, options_for_select([["ユーザー名検索", "1"],["場所名検索", "2"],["都道府県別検索", "3"]])) %>
+            <%= text_field_tag :search %>
+            <%= submit_tag 'Search' %>
+          <% end %>
+        </li>
+      </div>
 
-<nav>
-  <ul class="nav-list">
-  <% if user_signed_in? %>
-<!-- ログイン後 -->
-<!-- サーチ機能ユーザーと場所を検索可 -->
-    <li class="nav-list-item">
-      <%= form_tag(search_path, :method => 'get') do %>
-      <%= select_tag(:option, options_for_select([["ユーザー名検索", "1"],["場所名検索", "2"],["都道府県別検索", "3"]])) %>
-      <%= text_field_tag :search %>
-      <%= submit_tag 'Search' %>
-      <% end %>
-    </li>
-    <li class="nav-list-item">ようこそ♪ <%= current_user.name %> さん</p>
-    <li class="nav-list-item"><%= link_to "ホーム", root_path ,class:"fas fa-home" %></li>
-    <li class="nav-list-item"><%= link_to "このサイトについて", products_about_path ,class:"fas fa-book-open" %></li>
-    <li class="nav-list-item"><%= link_to "場所一覧", products_path ,class:"fas fa-car-side" %></li>
-    <li class="nav-list-item"><%= link_to "マイページ", user_path(current_user.id) ,class:"fas fa-user-circle" %></li>
-    <li class="nav-list-item"><%= link_to "お問い合わせ", inquiry_path ,class:"far fa-comments" %></li>
-    <li class="nav-list-item"><%= link_to "会員一覧", users_path ,class:"fas fa-users" %></li>
-    <li class="nav-list-item"><%= link_to "場所新規登録", new_product_path ,class:"fas fa-plus" %></li>
-    <li class="nav-list-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete ,class:"fas fa-sign-out-alt" %></li>
-  <% else %>
-<!-- ログインしていない時 -->
-    <li class="nav-list-item"><%= link_to "ホーム", root_path ,class:"fas fa-home" %></li>
-    <li class="nav-list-item"><%= link_to "このサイトについて", products_about_path ,class:"fas fa-book-open" %></li>
-    <li class="nav-list-item"><%= link_to "新規登録", new_user_registration_path ,class:"fas fa-user-plus" %></li>
-    <li class="nav-list-item"><%= link_to "ログイン", new_user_session_path ,class:"fas fa-sign-in-alt" %></li>
-    <li class="nav-list-item"><%= link_to "お問い合わせ", inquiry_path ,class:"far fa-comments" %></li>
-  <% end %>
-  </ul>
+        <% else %>
+        <li class="nav-item"><%= link_to "ABOUT", products_about_path ,class:"nav-link js-scroll-trigger" %></li>
+        <li class="nav-item"><%= link_to "SIGNUP", new_user_registration_path ,class:"nav-link js-scroll-trigger" %></li>
+        <li class="nav-item"><%= link_to "LOGIN", new_user_session_path ,class:"nav-link js-scroll-trigger" %></li>
+        <li class="nav-item"><%= link_to "CONTACT", inquiry_path ,class:"nav-link js-scroll-trigger" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
 </nav>
+

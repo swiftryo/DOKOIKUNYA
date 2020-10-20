@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
     <title>DOKOIKUNYA</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,10 +12,8 @@
   </head>
 
   <body>
-    <div class="container">
       <!-- ヘッター -->
       <%= render 'layouts/header' %>
-    </div>
       <!-- エラー -->
       <% if flash[:notice] %>
         <div class="notification is-info">
