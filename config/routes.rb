@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy, :show]
     get "index_favorites" => "favorites#index"
   end
-  resources :users
+  resources :users do
+    get :followings, on: :member
+  end
 
   resources :relationships, only: [:create, :destroy]
 
