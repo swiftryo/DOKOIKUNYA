@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get "index_favorites" => "favorites#index"
   end
   resources :users
+
   resources :relationships, only: [:create, :destroy]
 
   # resources :genres, only: [:index, :create, :edit, :update]

@@ -67,7 +67,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'listen', '>= 3.0.5', '< 3.2'
-
+gem 'rails-i18n', '~> 5.1' 
 group :production do
   gem 'mysql2'
 end

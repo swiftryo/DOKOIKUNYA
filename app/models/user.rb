@@ -15,8 +15,6 @@ class User < ApplicationRecord
   #user_idを入り口
   has_many :followers, through: :reverse_of_relationships, source: :user
 
-  attachment :profile_image, destroy: false
-
   enum prefecture_code: {
     "---":0,
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,

@@ -15,12 +15,12 @@
 <td><%= @user.prefecture_code %></td>
 </tr>
 <tr class="brown-border">
-<td class="active">画像</td>
-<td><%#= @user.profile_image %></td>
-</tr>
-<tr class="brown-border">
 <td class="active">お気に入り一覧</td>
 <td><%= link_to "お気に入り一覧", product_index_favorites_path(@user) %></td>
+</tr>
+<tr class="brown-border">
+<td class="active">フォロー一覧</td>
+<td><%#= @user.follow.count %></td>
 </tr>
 <tr class="brown-border">
 <td class="active">フォロー</td>
