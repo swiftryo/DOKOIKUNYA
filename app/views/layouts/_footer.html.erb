@@ -1,9 +1,40 @@
-
 <footer>
-	<p class="footer-text">© 2020 White GUNDUM.<i class="fas fa-robot"></i>
-	<p class="fab-right">
-	<a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-	<a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-	<a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
-</p>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-9 card text-center">
+				© 2020 White GUNDUM.
+				<button type="button" class="btn-xs" data-toggle="modal" data-target="#sampleModal">
+				<i class="fas fa-robot"></i>
+				</button>
+			</div>
+			<div class="col-sm-3 card text-right">
+				<i class="fab fa-github"></i>
+				<i class="fab fa-facebook-f"></i>
+				<i class="fab fa-twitter"></i>
+			</div>
+		</div>
+	</div>
 </footer>
+
+
+
+<!-- モーダル・ダイアログ -->
+<div class="modal fade" id="sampleModal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+				<h4 class="modal-title">White GUNDUM. 説明</h4>
+			</div>
+			<div class="modal-body">
+				DOKOIKUNYA作成者が初めて行った、チーム開発のチーム名です。<br>
+				初めてのチーム開発、わからないことしかなく、毎日がワクワクの日々でした。<br>
+				名前の由来はホワイト企業+テーブルの席がGだったところから頂きました。
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				<button type="button" class="btn btn-success"><%= link_to "github", "#{}" %></button>
+			</div>
+		</div>
+	</div>
+</div>

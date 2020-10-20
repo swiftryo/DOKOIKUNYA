@@ -17,21 +17,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  color: #6c6b6b;
-}
 
-a {
-  color: black;
-  text-decoration: none;
-}
-
-.fab {
-  padding-left: 30px;
-}
 
 // お気に入り-----------------
 .glyphicon-heart {
@@ -61,18 +47,6 @@ a {
 }
 .average-score-display {
   font-size: 16px;
-} 
-
-// footer------------------------
-footer {
-  font-family: Oswald,sans-serif;
-  color:#fff;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  line-height: 70px;
-  background-image: linear-gradient(120deg, #84fab0 0%, #D6FFD4 100%);
-  margin-top:20px;
 }
 
 // error-------------------------------------------
@@ -101,22 +75,3 @@ footer {
   }
 
 
-// header---------------------------------------------
-nav {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  background-color: #D6FFD4;
-  align-items: center;
-  position: fixed;
-}
-
-.navbar-brand {
-  margin-right: auto;
-}
- 
-.nav-item {
-  list-style: none;
-  display: inline-block;
-  padding: 10px;
-}
