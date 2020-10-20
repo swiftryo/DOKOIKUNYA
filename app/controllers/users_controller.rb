@@ -20,6 +20,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @relationship = current_user.relationships.find_by(follow_id: @user.id)  
+    @set_relationship = current_user.relationships.new
   end
 
   def withdraw
@@ -42,6 +44,11 @@ class UsersController < ApplicationController
     else
       @prefecture_code = Product.search(params[:search], @user_or_product)
     end
+  end
+
+  def followings
+    @user = User.find(params[:id])
+    @users = @user.followings.all
   end
 
 

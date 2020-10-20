@@ -14,3 +14,7 @@
 //= require activestorage
 //= require jquery
 //= require bootstrap-sprockets
+
+$(function () {
+	$('[data-toggle="popover"]').popover();
+});

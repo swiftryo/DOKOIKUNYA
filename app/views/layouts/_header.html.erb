@@ -1,40 +1,43 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <%= link_to "DOKOIKUNYA", root_path, {class: "navbar-brand js-scroll-trigger"} %>
-      </div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample7">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "DOKOIKUNYA", root_path, class:"navbar-brand" %>
     </div>
-    <div class="row">
-      <div class="col-xs-10">
-      <ul class="navbar-nav ml-auto">
+    
+    <div class="collapse navbar-collapse" id="navbarEexample7">
+      <ul class="nav navbar-nav">
         <% if user_signed_in? %>
-        <li class="nav-item">ようこそ♪ <%= current_user.name %> さん</li>
-        <li class="nav-item"><%= link_to "ABOUT", products_about_path ,class:"nav-link js-scroll-trigger" %></li>
-        <li class="nav-item"><%= link_to "SPOT", products_path ,class:"nav-link js-scroll-trigger" %></li>
-        <li class="nav-item"><%= link_to "MY PAGE", user_path(current_user.id) ,class:"nav-link js-scroll-trigger" %></li>
-        <li class="nav-item"><%= link_to "MEMBER", users_path ,class:"nav-link js-scroll-trigger" %></li>
-        <li class="nav-item"><%= link_to "CONTACT", inquiry_path ,class:"nav-link js-scroll-trigger" %></li>
-        <li class="nav-item"><%= link_to "LOGOUT", destroy_user_session_path, method: :delete ,class:"nav-link js-scroll-trigger" %></li>
-        <div class="row">
-        <li class="nav-item" >
+          <li class="nav-item"><%= link_to "ABOUT", products_about_path %></li>
+          <li class="nav-item"><%= link_to "SPOT", products_path %></li>
+          <li class="nav-item"><%= link_to "MY PAGE", user_path(current_user.id) %></li>
+          <li class="nav-item"><%= link_to "MEMBER", users_path %></li>
+          <li class="nav-item"><%= link_to "CONTACT", inquiry_path %></li>
+          <li class="nav-item"><%= link_to "LOGOUT", destroy_user_session_path, method: :delete %></li>
+          <li class="nav-item navbar-text navbar-right pl-5">ようこそ♪ <%= current_user.name %> さん</li>
+          <li class="nav-item" >
           <%= form_tag(search_path, :method => 'get') do %>
+          <div class="form-group navbar-form navbar-left ">
             <%= select_tag(:option, options_for_select([["ユーザー名検索", "1"],["場所名検索", "2"],["都道府県別検索", "3"]])) %>
             <%= text_field_tag :search %>
-            <%= submit_tag 'Search' %>
+            <%= submit_tag 'Search', class:"btn btn-default" %>
+            </div>
           <% end %>
-        </li>
-      </div>
+          </li>
 
         <% else %>
-        <li class="nav-item"><%= link_to "ABOUT", products_about_path ,class:"nav-link js-scroll-trigger" %></li>
-        <li class="nav-item"><%= link_to "SIGNUP", new_user_registration_path ,class:"nav-link js-scroll-trigger" %></li>
-        <li class="nav-item"><%= link_to "LOGIN", new_user_session_path ,class:"nav-link js-scroll-trigger" %></li>
-        <li class="nav-item"><%= link_to "CONTACT", inquiry_path ,class:"nav-link js-scroll-trigger" %></li>
+          <li class="nav-item"><%= link_to "ABOUT", products_about_path %></li>
+          <li class="nav-item"><%= link_to "SIGNUP", new_user_registration_path %></li>
+          <li class="nav-item"><%= link_to "LOGIN", new_user_session_path %></li>
+          <li class="nav-item"><%= link_to "CONTACT", inquiry_path %></li>
         <% end %>
+
       </ul>
     </div>
   </div>
-</div>
 </nav>
-

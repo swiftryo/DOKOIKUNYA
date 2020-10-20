@@ -4,9 +4,27 @@
 	<%= form_for(@product) do |f| %>
 		<div class="col-xs-4">
 			<h4>画像</h4>
-			<%= attachment_image_tag @product, :image, size: "300x300", format: 'jpeg', fallback: "no_data.jpg", size: "200x200" %><br><br>
+			<%= attachment_image_tag @product, :image, format: 'jpeg', fallback: "no_data.jpg", size: "300x300" %><br><br>
 			<%= f.attachment_field :image %>
 		</div>
+
+		<script>
+$(function(){
+    // inputのidから情報の取得
+    $('#product_image').on('change', function (e) {
+// ここから既存の画像のurlの取得
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $(".image").attr('src', e.target.result);
+    }
+// ここまで
+    reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+});
+});
+
+</script>
+
+
 		<div class="col-xs-8">
 			<h4>場所名</h4>
 			<%= f.text_field :name %>
