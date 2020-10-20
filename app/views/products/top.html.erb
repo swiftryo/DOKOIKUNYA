@@ -3,7 +3,7 @@
 <% @recommendation.each do |product| %>
 
 <%= link_to product_path(product) do %>
-<%= attachment_image_tag product, :image, :fill, 200, 200, fallback: "no_image.jpg", size:"200x200", class: "img-rounded" %>
+<%= attachment_image_tag product, :image, :fill, 200, 200, fallback: "no_data.jpg", size:"200x200", class: "img-rounded" %>
 <p><%= product.name.truncate(12, omission: '...') %></p>
 <p><%= product.prefecture_code %></p>
 
