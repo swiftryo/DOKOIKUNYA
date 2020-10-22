@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-expand-lg navbar-light fixed-top" id="mainNav">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample7">
@@ -19,25 +19,47 @@
           <li class="nav-item"><%= link_to "MEMBER", users_path %></li>
           <li class="nav-item"><%= link_to "CONTACT", inquiry_path %></li>
           <li class="nav-item"><%= link_to "LOGOUT", destroy_user_session_path, method: :delete %></li>
-          <li class="nav-item navbar-text navbar-right pl-5">ようこそ♪ <%= current_user.name %> さん</li>
-          <li class="nav-item" >
-          <%= form_tag(search_path, :method => 'get') do %>
-          <div class="form-group navbar-form navbar-left ">
-            <%= select_tag(:option, options_for_select([["ユーザー名検索", "1"],["場所名検索", "2"],["都道府県別検索", "3"]])) %>
-            <%= text_field_tag :search %>
-            <%= submit_tag 'Search', class:"btn btn-default" %>
-            </div>
-          <% end %>
-          </li>
+          <li class="nav-item navbar-text">ようこそ♪ <%= current_user.name %> さん</li>
+      </ul>
+          <p class="nav-item navbar-right">
+            <button type="button" class="btn-lg" data-toggle="modal" data-target="#searchModal">
+              <i class="fab fa-sistrix"></i>
+            </button>
+          </p>
 
         <% else %>
-          <li class="nav-item"><%= link_to "ABOUT", products_about_path %></li>
-          <li class="nav-item"><%= link_to "SIGNUP", new_user_registration_path %></li>
-          <li class="nav-item"><%= link_to "LOGIN", new_user_session_path %></li>
-          <li class="nav-item"><%= link_to "CONTACT", inquiry_path %></li>
+          <ul class="nav navbar-nav">
+            <li class="nav-item"><%= link_to "ABOUT", products_about_path %></li>
+            <li class="nav-item"><%= link_to "SIGNUP", new_user_registration_path %></li>
+            <li class="nav-item"><%= link_to "LOGIN", new_user_session_path %></li>
+            <li class="nav-item"><%= link_to "CONTACT", inquiry_path %></li>
+            <li class="nav-item"><%= link_to 'ゲストログイン（閲覧用）', products_guest_sign_in_path, method: :post ,class:"fas fa-sign-in-alt" %></li>
         <% end %>
-
-      </ul>
+          </ul>
     </div>
   </div>
 </nav>
+
+<!-- モーダル、サーチ -->
+<div class="modal fade" id="searchModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+        <h4 class="modal-title">検索</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag(search_path, :method => 'get') do %>
+          <div class="form-group navbar-form navbar-left">
+            <%= select_tag(:option, options_for_select([["ユーザー名検索", "1"],["場所名検索", "2"],["都道府県別検索", "3"]])) %>
+            <%= text_field_tag :search %>
+            <%= submit_tag 'Search', class:"btn btn-default" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+      </div>
+    </div>
+  </div>
+</div>
