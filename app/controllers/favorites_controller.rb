@@ -5,14 +5,14 @@ class FavoritesController < ApplicationController
   	@product = Product.find(params[:product_id])
     favorite = current_user.favorites.new(product_id: @product.id)
     favorite.save
-    redirect_to request.referer
+    # redirect_to request.referer
   end
 
   def destroy
   	@product = Product.find(params[:product_id])
     favorite = current_user.favorites.find_by(product_id: @product.id)
     favorite.destroy
-    redirect_to request.referer
+    # redirect_to request.referer
   end
 
   def index
