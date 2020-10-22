@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-expand-lg navbar-light fixed-top" id="mainNav">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample7">
@@ -35,6 +35,7 @@
           <li class="nav-item"><%= link_to "SIGNUP", new_user_registration_path %></li>
           <li class="nav-item"><%= link_to "LOGIN", new_user_session_path %></li>
           <li class="nav-item"><%= link_to "CONTACT", inquiry_path %></li>
+          <li class="nav-item"><%= link_to 'ゲストログイン（閲覧用）', products_guest_sign_in_path, method: :post ,class:"fas fa-sign-in-alt" %></li>
         <% end %>
 
       </ul>
