@@ -5,54 +5,54 @@
     <div class="container-fluid">
      <div class="row">
         <div class="col-xs-3 col-xs-offset-2">
-        <%= f.label :名前 %><span class="text-danger">（必須）</span><br />
+          <%= f.label :名前 %><span class="text-danger">（必須）</span><br />
         </div>
         <div class="col-xs-7">
-        <%= f.text_field :name, :placeholder => "ニックネーム", autofocus: true, autocomplete: "name" %>
-        <button type="button" class="btn btn-default" data-toggle="popover" data-animation="true" title="ニックネーム" data-content="呼んでもらいたいニックネームで登録してください。"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></button>
+          <%= f.text_field :name, :placeholder => "ニックネーム", autofocus: true, autocomplete: "name" %>
+          <button type="button" class="btn btn-default" data-toggle="popover" data-animation="true" title="ニックネーム" data-content="呼んでもらいたいニックネームで登録してください。"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></button>
         </div>
-      </div><br>
+    </div><br>
 
-
-      <div class="row">
-        <div class="col-xs-3 col-xs-offset-2">
+     <div class="row">
+       <div class="col-xs-3 col-xs-offset-2">
         <%= f.label :メールアドレス %><span class="text-danger">（必須）</span><br />
-        </div>
-        <div class="col-xs-7">
-        <%= f.email_field :email, :placeholder => "yamada@nihon.com", autofocus: true, autocomplete: "email" %>
-        </div>
-      </div><br>
+       </div>
+       <div class="col-xs-7">
+         <%= f.email_field :email, :placeholder => "yamada@nihon.com", autofocus: true, autocomplete: "email" %>
+       </div>
+     </div><br>
 
-        <div class="row">
-        <div class="col-xs-3 col-xs-offset-2">
+     <div class="row">
+       <div class="col-xs-3 col-xs-offset-2">
         <%= f.label :都道府県 %><br />
-        </div>
-        <div class="col-xs-7">
+       </div>
+       <div class="col-xs-7">
         <%= f.select :prefecture_code, User.prefecture_codes.keys, {} %>
-        <button type="button" class="btn btn-default" data-toggle="popover" data-animation="true" title="在住都道府県" data-content="他のユーザーに、在住都道府県を教えたくない場合は---で登録してください。"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></button>
+        <button type="button" class="btn btn-default" data-toggle="popover" data-animation="true" title="在住都道府県" data-content="他のユーザーに、在住都道府県を教えたくない場合は---で登録してください。">
+          <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+        </button>
+       </div>
+     </div><br>
+
+      <div class="row">
+        <div class="col-xs-3 col-xs-offset-2">
+          <%= f.label :パスワード %><span class="text-danger">（必須）</span>
+        </div>
+        <div class="col-xs-7">
+          <%= f.password_field :password, :placeholder => "6文字以上", autocomplete: "new-password" %>
         </div>
       </div><br>
 
       <div class="row">
         <div class="col-xs-3 col-xs-offset-2">
-        <%= f.label :パスワード %><span class="text-danger">（必須）</span>
+          <%= f.label :パスワード（確認用） %><span class="text-danger">（必須）</span><br />
         </div>
-
         <div class="col-xs-7">
-        <%= f.password_field :password, :placeholder => "6文字以上", autocomplete: "new-password" %>
+          <%= f.password_field :password_confirmation, :placeholder => "上記と同じパスワード", autocomplete: "new-password" %>
         </div>
       </div><br>
 
-      <div class="row">
-        <div class="col-xs-3 col-xs-offset-2">
-        <%= f.label :パスワード（確認用） %><span class="text-danger">（必須）</span><br />
-        </div>
-        <div class="col-xs-7">
-        <%= f.password_field :password_confirmation, :placeholder => "上記と同じパスワード", autocomplete: "new-password" %>
-        </div>
-      </div><br>
-
-      <div class="actions col-xs-7 col-xs-offset-5">
+      <div class="actions col-xs-5 col-xs-offset-7">
         <%= f.submit "新規登録", class: "btn btn-success" %>
       </div>
 <% end %>
