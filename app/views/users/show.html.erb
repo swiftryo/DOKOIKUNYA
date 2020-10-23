@@ -1,46 +1,55 @@
-<h1>Users#show</h1>
+<% if @user.id == current_user.id %>
+	<h2>MY PAGE</h2>
+<% else %>
+	<h2><%= @user.name %>&nbsp;ページ</h2>
+<% end %>
 
-<h2>MYPAGE</h2>
-<table class="table customer-show">
-<tr class="brown-border">
-<td class="active">名前</td>
-<td><%= @user.name %></td>
-</tr>
-<tr class="brown-border">
-<td class="active">自己紹介</td>
-<td><%= @user.biography %></td>
-</tr>
-<tr class="brown-border">
-<td class="active">在住</td>
-<td><%= @user.prefecture_code %></td>
-</tr>
-<tr class="brown-border">
-<td class="active">お気に入り一覧</td>
-<td><%= link_to "お気に入り一覧", product_index_favorites_path(@user) %></td>
-</tr>
-<tr class="brown-border">
-<td class="active">フォロー一覧</td>
-<td><%= link_to "フォロー: #{@user.followings.count}", followings_user_path(@user.id) %></td>
-</tr>
-<tr class="brown-border">
-<td class="active">フォロー</td>
-<td>
-  <!-- フォロー機能 -->
-<%= render 'relationships/follow_button' %>
-</td>
-</tr>
+<table class="table table-hover">
+	<tr class="brown-border">
+		<td class="active">名前</td>
+		<td><%= @user.name %></td>
+	</tr>
+
+	<tr class="brown-border">
+		<td class="active">自己紹介</td>
+		<td><%= @user.biography %></td>
+	</tr>
+
+	<tr class="brown-border">
+		<td class="active">在住</td>
+		<td><%= @user.prefecture_code %></td>
+	</tr>
+
+	<tr class="brown-border">
+		<td class="active">お気に入り一覧</td>
+		<td><%= link_to "お気に入り一覧", product_index_favorites_path(@user) %></td>
+	</tr>
+
+	<tr class="brown-border">
+		<td class="active">フォロー一覧</td>
+		<td><%= link_to "フォロー: #{@user.followings.count}", followings_user_path(@user.id) %></td>
+	</tr>
+	
+	<% unless @user.id == current_user.id %>
+		<tr class="brown-border">
+			<td class="active">フォロー</td>
+			<td>
+  		<!-- フォロー機能 -->
+				<%= render 'relationships/follow_button' %>
+			</td>
+		</tr>
+	<% end %>
 </table>
-
 
 <div>
-<table align="right">
-<tbody>
-<tr><% if @user.id == current_user.id %>
-<td><%= link_to  "編集する", edit_user_path(@user), class: "btn btn-success" %></td>
-<td><%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-primary" %></td>
-<td><%= link_to "退会する", users_withdraw_path, class: "btn btn-danger" %></td>
-	<% end %>
-</tr>
-</tbody>
-</table>
+	<table align="right">
+		<tbody>
+			<tr><% if @user.id == current_user.id %>
+				<td><%= link_to  "編集する", edit_user_path(@user), class: "btn btn-success" %></td>
+				<td><%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-primary" %></td>
+				<td><%= link_to "退会する", users_withdraw_path, class: "btn btn-danger" %></td>
+				<% end %>
+			</tr>
+		</tbody>
+	</table>
 </div>
