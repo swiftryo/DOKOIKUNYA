@@ -29,7 +29,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { in: 1..20 }, uniqueness: true
   validates :email, presence: true
-  validates :biography, length: { in: 0..85 }
 
   def active_for_authentication?
     super && (self.is_deleted == false)

@@ -16,8 +16,7 @@ class Product < ApplicationRecord
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }
   validates :name, presence: true, length: { in: 1..20 }, uniqueness: true
-  validates :introduction, length: { in: 0..80 }
-  
+  validates :introduction, presence: true, length: { in: 1..80 }, uniqueness: true
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end

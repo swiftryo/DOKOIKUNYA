@@ -1,7 +1,9 @@
+<% @product = Product.new unless @product %>
 <div class="container">
     <div class="row">
         <h1>新規登録</h1>
         <%= form_for(@product) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
             <div class="col-xs-6">
                 <h4>画像</h4>
                     <%= attachment_image_tag @product, :image, format: 'jpeg', fallback: "no_data.jpg", size: "300x300" %><br><br>
