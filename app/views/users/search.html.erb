@@ -1,42 +1,20 @@
-
 <% if @user_or_product == "1"%>
-    <h1>ユーザー</h1>
-    <table>
-        <% @users.each do |user| %>
-        <thead>
-            <tr>
-                <th></th>
-                <th><%= link_to user.name, user_path(user) %></th>
-            </tr>
-        </thead>
-        <% end %>
-    </table>
- 
+    <h1 class="text-center">ユーザー</h1>
+    <% @users.each do |user| %>
+        <li class="list-group-item text-center"><%= link_to user.name, user_path(user) %></li>
+    <% end %>
 <% elsif @user_or_product == "2" %>
-    <h2>場所</h2>
-    <table>
+    <h2 class="text-center">場所</h2>
     <% @products.each do |product| %>
-        <thead>
-            <tr>
-                <th></th>
-                <th><%= link_to product.name, product_path(product.id) %></th>
-            </tr>
-        </thead>
+        <li class="list-group-item text-center"><%= link_to product.name, product_path(product.id) %></li>
     <% end %>
-    </table>
+
 <!-- 現在使用不可　たぶん使えないので別の検索歩法を考える　ちなみにenumの数字でなら検索できる　データ型を変えないとたぶん無理 -->
-    <% elsif @user_or_product == "3" %>
-    <h2>都道府県別場所</h2>
-    <table>
+<% elsif @user_or_product == "3" %>
+    <h2 class="text-center">都道府県別場所</h2>
     <% @prefecture_code.each do |product| %>
-        <thead>
-            <tr>
-                <th></th>
-                <th><%= product.name %></th>
-                <th><%= product.prefecture_code %></th>
-            </tr>
-        </thead>
+        <%= product.name %>
+        <li class="list-group-item text-center"><%= product.prefecture_code %></li>
     <% end %>
-    </table>
 <% else %>
 <% end %>

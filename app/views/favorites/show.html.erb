@@ -1,7 +1,10 @@
-<h2>お気に入り登録ユーザー一覧(<%= @favorites.length %>人)</h2>
+<h2 class="text-center">お気に入り登録ユーザー一覧(<%= @favorites.length %>人)</h2>
 
 <% @favorites.each do |favorite| %>
 	<% @user_id = favorite.user_id %>
 	<% user = User.find(@user_id) %>
-	<li><%= link_to user.name, user_path(user) %></li><br>
+	<li class="list-group-item text-center"><%= link_to user.name, user_path(user) %></li><br>
+<% end %>
+<%= link_to :back do %>
+  <button class="btn-info">戻る</button>
 <% end %>
