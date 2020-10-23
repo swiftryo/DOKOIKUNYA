@@ -38,6 +38,11 @@
 				<%= render 'relationships/follow_button' %>
 			</td>
 		</tr>
+
+	<tr class="brown-border">
+		<td class="active">チャット</td>
+		<td><%#= link_to "フォロー: #{@user.followings.count}", followings_user_path(@user.id) %></td>
+	</tr>
 	<% end %>
 </table>
 

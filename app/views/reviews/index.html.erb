@@ -1,4 +1,4 @@
-<h1>レビュー一覧</h1>
+<h1 class="text-center">レビュー一覧</h1>
 <h3><%= @product.name %></h3>
 <div class="average-score">
   <div class="star-rating">
@@ -27,4 +27,7 @@
     </tr>
     <% end %>
   </tbody>
-</table> 
+</table>
+<%= link_to :back do %>
+  <button class="btn-info">戻る</button>
+<% end %>
