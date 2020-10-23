@@ -7,8 +7,13 @@ class User < ApplicationRecord
   has_many :products
   has_many :reviews, dependent: :destroy
   has_many :favorites, dependent: :destroy
-
-  attachment :profile_image, destroy: false
+  has_many :relationships
+  #フォロー中間テーブルを設定し、フォローしているuserたちを取得
+  has_many :followings, through: :relationships, source: :follow
+  #上記の逆、入り口をfollow_idとする
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+  #user_idを入り口
+  has_many :followers, through: :reverse_of_relationships, source: :user
 
   enum prefecture_code: {
     "---":0,
@@ -22,6 +27,9 @@ class User < ApplicationRecord
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }
 
+  validates :name, presence: true, length: { in: 1..20 }, uniqueness: true
+  validates :email, presence: true
+
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
@@ -34,4 +42,20 @@ class User < ApplicationRecord
        User.all
     end
   end
+
+  def follow(other_user)
+    unless self == other_user
+      self.relationships.find_or_create_by(follow_id: other_user.id)
+    end
+  end
+
+  def unfollow(other_user)
+    relationship = self.relationships.find_by(follow_id: other_user.id)
+    relationship.destroy if relationship
+  end
+
+  def following?(other_user)
+    self.followings.include?(other_user)
+  end
+
 end

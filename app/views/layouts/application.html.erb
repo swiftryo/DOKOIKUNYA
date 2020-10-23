@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
+    <meta charset="utf-8" />
     <title>DOKOIKUNYA</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,11 +11,10 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
-    <div class="container">
+  <body id="page-top">
       <!-- ヘッター -->
       <%= render 'layouts/header' %>
-    </div>
+
       <!-- エラー -->
       <% if flash[:notice] %>
         <div class="notification is-info">
@@ -27,10 +27,10 @@
         </div>
       <% end %>
 
-
       <%= yield %>
 
       <!-- フッター -->
       <%= render 'layouts/footer' %>
+
   </body>
 </html>

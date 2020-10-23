@@ -1,36 +1,29 @@
-<h1>Users#edit</h1>
-<h2>登録情報編集</h2>
+<h2 class="text-center">登録情報編集</h2>
 
 <%= form_for(@user) do |f| %>
- <div class="row">
-    <div class="col-md-3"><%= f.label :名前 %></div>
-    <div class="col-md-9"><%= f.text_field :name %></div>
-  </div><br>
+  <div class="container">
+   <div class="row">
+      <div class="col-xs-3 col-xs-offset-3"><%= f.label :名前 %></div>
+      <div class="col-xs-6"><%= f.text_field :name %></div>
+   </div><br>
 
-  <div class="row">
-    <div class="col-md-3"><%= f.label :メールアドレス %></div>
-    <div class="col-md-9"><%= f.text_field :email %></div>
-    <div class="col"></div>
-  </div><br>
+    <div class="row">
+      <div class="col-xs-3 col-xs-offset-3"><%= f.label :メールアドレス %></div>
+      <div class="col-xs-6"><%= f.text_field :email %></div>
+    </div><br>
 
-  <div class="row">
-    <div class="col-md-3"><%= f.label :自己紹介 %></div>
-    <div class="col-md-9"><%= f.text_area :biography %></div>
-    <div class="col"></div>
-  </div><br>
+    <div class="row">
+      <div class="col-xs-3 col-xs-offset-3"><%= f.label :自己紹介 %></div>
+      <div class="col-xs-6"><%= f.text_area :biography %></div>
+    </div><br>
 
-  <div class="row">
-    <div class="col-md-3"><%= f.label :都道府県 %></div>
-    <div class="col-md-9"><%= f.select :prefecture_code, User.prefecture_codes.keys, {} %></div>
-    <div class="col"></div>
-  </div><br>
+    <div class="row">
+      <div class="col-xs-3 col-xs-offset-3"><%= f.label :都道府県 %></div>
+      <div class="col-xs-6"><%= f.select :prefecture_code, User.prefecture_codes.keys, {} %></div>
+    </div><br>
 
-
-  <div class="row">
-    <div><%#= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%></div>
-    <div class="col-md-3"><%= f.label :写真 %></div>
-    <div class="col-md-9"><%#= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %></div>
-    <div class="col"></div>
-  </div><br>
-    <%= f.submit "変更を保存する", class: "btn btn-primary" %>
-  <% end %> 
+    <div class="actions col-xs-5 col-xs-offset-7">
+      <%= f.submit "変更を保存する", class: "btn btn-primary" %>
+    </div>
+<% end %> 
+  </div>

@@ -1,31 +1,56 @@
+<% @product = Product.new unless @product %>
+
 <div class="container">
 	<div class="row">
-	<h1>編集画面</h1>
-	<%= form_for(@product) do |f| %>
-		<div class="col-xs-4">
-			<h4>画像</h4>
-			<%= attachment_image_tag @product, :image, size: "300x300", format: 'jpeg', fallback: "no_data.jpg", size: "200x200" %><br><br>
-			<%= f.attachment_field :image %>
-		</div>
-		<div class="col-xs-8">
-			<h4>場所名</h4>
-			<%= f.text_field :name %>
-			<h4>場所説明</h4>
-			<%= f.text_area :introduction %>
-			<h4>ジャンル</h4>
-			<h4>都道府県</h4>
-			<%= f.select :prefecture_code, User.prefecture_codes.keys, {} %>
-			<h4>市町村</h4>
-			<%= f.text_field :city %>
-			<h4>番地</h4>
-			<%= f.text_field :street %>
-
-			<h4>現在の状況</h4>
-			<%= f.select :status, {"現在もあります" => "true", "現在はありません" => "false"} %><br><br>
-			<div class="button">
-				<%= f.submit "変更を保存" %>
+		<h1>編集画面</h1>
+		<%= form_for(@product) do |f| %>
+			<div class="col-xs-6">
+				<h4>画像</h4>
+					<%= attachment_image_tag @product, :image, format: 'jpeg', fallback: "no_data.jpg", size: "300x300" %><br><br>
+					<%= f.attachment_field :image %>
 			</div>
-	<% end %> 
-		</div>
+
+			<script>
+				$(function(){
+    			// inputのidから情報の取得
+    			$('#product_image').on('change', function (e) {
+				// ここから既存の画像のurlの取得
+    			var reader = new FileReader();
+    			reader.onload = function (e) {
+        		$(".image").attr('src', e.target.result);
+    			}
+				// ここまで
+    			reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+				});
+				});
+			</script>
+
+			<div class="col-xs-6">
+				<h4>場所名</h4>
+				<%= f.text_field :name %>
+				<h4>場所説明</h4>
+				<%= f.text_area :introduction %>
+				<h4>都道府県</h4>
+				<%= f.select :prefecture_code, User.prefecture_codes.keys, {} %>
+				<button type="button" class="btn btn-default" data-toggle="popover" data-animation="true" title="都道府県を選択" data-content="わからなければ---のままでお願いします。">
+         			<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+      			 </button>
+				<h4>市町村</h4>
+				<%= f.text_field :city %>
+				<button type="button" class="btn btn-default" data-toggle="popover" data-animation="true" title="市町村、番地" data-content="わからない場合は空白でお願いします。">
+         			<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+       			</button>
+				<h4>番地</h4>
+				<%= f.text_field :street %>
+				<h4>現在の状況</h4>
+				<%= f.select :status, {"現在もあります" => "true", "現在はありません" => "false"} %><br><br>
+				<div class="button">
+					<%= f.submit "変更を保存" %>
+				</div>
+		<% end %> 
+			</div>
 	</div>
 </div>
+<%= link_to :back do %>
+  <button class="btn-info">戻る</button>
+<% end %>

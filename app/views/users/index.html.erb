@@ -1,30 +1,20 @@
-<h1>Users#index</h1>
-<h4>会員一覧</h4>
+<h3 class="text-center">会員一覧</h3>
+	<table class="table customers-index">
+		<thead class="thead-light">
+			<th>ID</th>
+			<th>氏名</th>
+			<th>在住</th>
+		</thead>
 
-	  <table class="table customers-index">
-	    <thead class="thead-light">
-	  	  <th>会員ID</th>
-	  	  <th>氏名</th>
-	  	  <th>在住</th>
-	  	  <th>ステータス</th>
-	    </thead>
-
-	    <tbody>
-	  	  <% @users.each do |user| %>
-		  <tr>
-		  	<td><%= user.id %></td>
-		  	<td><%= link_to user.name, user_path(user) %></td>
-		  	<td><%= user.prefecture_code %></td>
-		  	<td>
-		  	　<% if user.is_deleted %>
-	  		    退会済み会員
-	  	      <% else %>
-	  		    有効会員
-	  	      <% end %>
-		  	</td>
-		  </tr>
-		  <% end %>
-		</tbody>
+	<tbody>
+		<% @users.each do |user| %>
+		<tr>
+			<td><%= user.id %></td>
+			<td><%= link_to user.name, user_path(user) , length: 10 %></td>
+			<td><%= user.prefecture_code %></td>
+		<% end %>
+		</tr>
+	</tbody>
 	</table>
 
 <%= paginate @users %>

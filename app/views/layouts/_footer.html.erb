@@ -1,3 +1,51 @@
 <footer>
-	<p class="footer-text">© 2020 White GUNDUM.<i class="fas fa-robot"></i>
+	<div class="container mt-2">
+		<div class="row">
+			<div class="col-10 text-center">
+				© 2020 White GUNDUM.
+				<button type="button" class="btn-xs" data-toggle="modal" data-target="#sampleModal">
+				<i class="fas fa-robot"></i>
+				</button>
+			</div>
+		</div>
+		<!-- 忍者 -->
+		<div class="ninja_onebutton">
+			<script type="text/javascript">
+			//<![CDATA[
+			(function(d){
+				if(typeof(window.NINJA_CO_JP_ONETAG_BUTTON_68db225519b2aacef07bf5e57abaf886)=='undefined'){
+    			document.write("<sc"+"ript type='text\/javascript' src='\/\/omt.shinobi.jp\/b\/68db225519b2aacef07bf5e57abaf886'><\/sc"+"ript>");
+				}else{
+    			window.NINJA_CO_JP_ONETAG_BUTTON_68db225519b2aacef07bf5e57abaf886.ONETAGButton_Load();}
+				})(document);
+				//]]>
+			</script>
+			<span class="ninja_onebutton_hidden" style="display:none;"></span>
+			<span style="display:none;" class="ninja_onebutton_hidden"></span>
+		</div>
+	</div>
 </footer>
+
+
+
+<!-- モーダル・ダイアログ -->
+<div class="modal fade" id="sampleModal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+				<h4 class="modal-title">White GUNDUM. 説明</h4>
+			</div>
+			<div class="modal-body">
+				DOKOIKUNYA作成者が初めて行った、チーム開発のチーム名です。
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				<button type="button" class="btn btn-success"><%= link_to "github", "#{}" %></button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

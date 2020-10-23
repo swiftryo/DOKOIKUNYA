@@ -3,49 +3,43 @@
 		<div class="col-xs-12">
 			<h1>場所一覧</h1>
 			<%= link_to new_product_path do %>
-          	<i class="glyphicon glyphicon-plus-sign icon" style = "font-size: 15px">場所登録</i>
+          		<i class="glyphicon glyphicon-plus-sign icon" style = "font-size: 20px">場所登録</i>
         	<% end %>
+
 			<% @products.each do |product| %>
+				<div class="row">
+					<div class="col-xs-4">
+						<%= attachment_image_tag product, :image, :fill, 200, 200, size: "200x200", format: 'jpeg', fallback: "no_data.jpg" %><br><br>
+					</div>
+					<div class="col-xs-4">
+						<h3><%= link_to product.name, product_path(product.id) %></h3>
+						<div id="favorites_buttons_<%= product.id %>">
+							<%= render partial: 'favorites/favorite', locals: { product: product} %>
+          				</div>
+					</div>
 
-			<div class="row">
-				<div class="col-xs-4">
-				<%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg' %><br><br>
-				</div>
-				<div class="col-xs-4">
-					<p>
-					<%= link_to product.name, product_path(product.id) %>
-	            	<% if product.favorited_by?(current_user) %>
-              			<%= link_to product_favorites_path(product), method: :delete do %>
-                		<span class="glyphicon glyphicon-heart"><%= product.favorites.count%></span>
-              			<% end %>
-            		<% else %>
-              			<%= link_to product_favorites_path(product), method: :post do %>
-                		<span class="glyphicon glyphicon-heart-empty"><%= product.favorites.count %></span>
-              			<% end %>
-            		<% end %>
-          			</p>
-				</div>
-				<div class="col-xs-4">
-					<div class="content average-score">
-						<div class="star-rating">
-							<div class="star-rating-front" style="width: <%= product.review_score_percentage %>%">★★★★★</div>
-							<div class="star-rating-back">★★★★★</div>
+					<div class="col-xs-4">
+						<div class="content average-score">
+							<div class="star-rating">
+								<div class="star-rating-front" style="width: <%= product.review_score_percentage %>%">★★★★★</div>
+								<div class="star-rating-back">★★★★★</div>
+							</div>
+							<div class="average-score-display">
+								<%= product.avg_score %>点 (<%= product.reviews.count %>件のレビュー)
+							</div>
 						</div>
-					<div class="average-score-display">
-						<%= product.avg_score %>点 (<%= product.reviews.count %>件のレビュー)
-					</div>
-					</div>
 
-					<%= link_to product_reviews_path(product) do %>
-						レビューを見る
-					<% end %>
+						<%= link_to product_reviews_path(product) do %>
+							レビューを見る
+						<% end %>
 
-					<%= link_to product_path(product) do %>
-						レビューを書く
-					<% end %>
-				</div><br>
-			</div>
+						<%= link_to product_path(product) do %>
+							レビューを書く
+						<% end %>
+					</div><br>
+				</div>
 			<% end %>
 		</div>
 	</div>
 </div>
+<%= paginate @products %>

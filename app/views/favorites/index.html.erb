@@ -1,9 +1,16 @@
-<h2>お気に入り一覧</h2>
+<h2 class="text-center">お気に入り一覧</h2>
 
 <% @favorites.each do |favorite| %>
 	<% product = Product.find(favorite.product_id) %>
-	<li><%= link_to product.name, product_path(product) %></li>
-	<div><%#= link_to "ブックマークから削除", product_favorites_path(favorite), method: :delete %></div><br>
-<!-- エラー中 -->
-
+	<ul class="list-group">
+		<li class="list-group-item text-center"><%= link_to product.name, product_path(product) %>
+			<span class="ml-5">
+				<%#= link_to "削除", product_favorites_path(product), method: :delete, remote: true, id: :"js-favorite-button-for-product-#{product.id}" %>
+			</span>
+		</li>
+	</ul>
 <% end %>
+<%= link_to :back do %>
+  <button class="btn-info">戻る</button>
+<% end %>
+

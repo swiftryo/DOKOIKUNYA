@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
   def index
-    @users = User.page(params[:page])
+    @users = User.page(params[:page]).reverse_order.per(8)
   end
 
   def edit
     @user = User.find(params[:id])
+    if @user == current_user
+      render "edit"
+    else
+      redirect_to root_path
+    end
   end
 
   def update
@@ -15,6 +20,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @relationship = current_user.relationships.find_by(follow_id: @user.id)  
+    @set_relationship = current_user.relationships.new
   end
 
   def withdraw
@@ -37,6 +44,11 @@ class UsersController < ApplicationController
     else
       @prefecture_code = Product.search(params[:search], @user_or_product)
     end
+  end
+
+  def followings
+    @user = User.find(params[:id])
+    @users = @user.followings.all
   end
 
 

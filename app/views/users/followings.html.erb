@@ -1,0 +1,10 @@
+<h2 class="text-center">フォローしている人</h2>
+
+<% @users.each do |user| %>
+	<li class="list-group-item text-center">
+		<%= link_to user.name, user_path(user.id) %>
+	</li>
+<% end %>
+<%= link_to :back do %>
+  <button class="btn-info">戻る</button>
+<% end %>
