@@ -42,12 +42,24 @@
 
 <!-- ビデオ -->
 <div class="wrap-video">
-  
   <div class="text">
     <p>full screen video !</p>
     <p class="headline">背景に動画を表示してみる</p>
   </div>
-  
   <video src="videos/video.mp4" muted autoplay loop></video>
-
 </div>
+
+<!-- スタート -->
+<% if user_signed_in? %>
+<% else %>
+<div class="btn-engine-start">
+<%= link_to products_guest_sign_in_path, method: :post ,class:"btn btn-engine-start-in" do %>
+START<br>ゲスト<br><span>ログイン</span>
+<% end %>
+</div>
+<% end %>
+
+
+<a href="#" class="btn-gradient-3d-simple">BUTTON</a>
+
+<a href="#" class="btn-gradient-1d-simple">BUTTON</a>
