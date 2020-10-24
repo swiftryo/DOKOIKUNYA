@@ -57,3 +57,13 @@ what you are about to do.<b></p>
 </div>
 
 
+
+<!-- スタート -->
+<% if user_signed_in? %>
+<% else %>
+<div class="btn-engine-start">
+<%= link_to products_guest_sign_in_path, method: :post ,class:"btn btn-engine-start-in" do %>
+START<br>ゲスト<br><span>ログイン</span>
+<% end %>
+</div>
+<% end %>
