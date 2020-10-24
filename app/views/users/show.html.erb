@@ -41,7 +41,22 @@
 
 	<tr class="brown-border">
 		<td class="active">チャット</td>
-		<td><%#= link_to "フォロー: #{@user.followings.count}", followings_user_path(@user.id) %></td>
+		<td>
+			<% if @user.id == current_user.id %>
+
+			<% else %>
+  				<% if @isRoom == true %>
+    				<p class="btn btn-primary"><a href="/rooms/<%= @roomId %>"><font color="#fff">チャットへ</font></a>
+  				<% else %>
+    				<%= form_for @room do |f| %>
+      					<%= fields_for @entry do |e| %>
+        					<%= e.hidden_field :user_id, :value=> @user.id %>
+      					<% end %>
+      					<%= f.submit "チャットを始める", class: "btn btn-primary" %>
+    				<% end %>
+  				<% end %>
+			<% end %>
+		</td>
 	</tr>
 	<% end %>
 </table>
