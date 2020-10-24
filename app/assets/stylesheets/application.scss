@@ -163,6 +163,23 @@
 .ml-5{
   margin-left: 50px;
 }
+
+.mb-1{
+  margin-bottom: 10px;
+}
+.mb-2{
+  margin-bottom: 20px;
+}
+.mb-3{
+  margin-bottom: 30px;
+}
+.mb-4{
+  margin-bottom: 40px;
+}
+.mb-5{
+  margin-bottom: 50px;
+}
+
 .pt-3{
   padding-top: 30px;
 }
@@ -336,6 +353,24 @@ body {
 }
 
 .btn-gradient-2d-simple:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+
+.btn-gradient-4d-simple {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #ffffff;
+  background-image: linear-gradient(#CC0033 0%, #CC0000 100%);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #990000;
+}
+
+.btn-gradient-4d-simple:active {
   -webkit-transform: translateY(4px);
   transform: translateY(4px);
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
