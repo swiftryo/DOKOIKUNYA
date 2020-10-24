@@ -13,7 +13,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th>ユーザー</th>
+      <th class="text-center">ユーザー</th>
       <th>点数</th>
       <th>内容</th>
     </tr>
@@ -21,7 +21,7 @@
   <tbody>
     <% @reviews.each do |review| %>
     <tr>
-      <td><%= review.user.name %></td>
+      <td class="text-center"><%= review.user.name %></td>
       <td><%= review.score %></td>
       <td><%= review.content %></td>
     </tr>
@@ -29,5 +29,5 @@
   </tbody>
 </table>
 <%= link_to :back do %>
-  <button class="btn-info">戻る</button>
+  <button class="btn02">戻る</button>
 <% end %>
