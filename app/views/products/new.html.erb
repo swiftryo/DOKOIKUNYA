@@ -44,10 +44,8 @@
                 <%= f.text_field :street %>
                 <h4>現在の状況</h4>
                 <%= f.select :status, {"現在もあります" => "true", "現在はありません" => "false"} %><br><br>
-                <div class="button">
-                    <%= f.submit "新規登録" %>
-                </div>
-        <% end %> 
+                <%= f.submit "新規登録", class:"btn-gradient-2d-simple" %>
+        <% end %>
             </div>
     </div>
 </div>

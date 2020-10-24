@@ -65,8 +65,8 @@
 	<table align="right">
 		<tbody>
 			<tr><% if @user.id == current_user.id %>
-				<td><%= link_to  "編集する", edit_user_path(@user), class: "btn btn-success" %></td>
-				<td><%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-primary" %></td>
+				<td><%= link_to  "編集する", edit_user_path(@user), class: "btn-gradient-3d-simple" %></td>
+				<td><%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn-gradient-1d-simple" %></td>
 				<% if current_user.id == 1 %>
 				<% else %>
 				<td><%= link_to "退会する", users_withdraw_path, class: "btn btn-danger" %></td>
