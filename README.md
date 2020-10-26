@@ -1,3 +1,4 @@
+![readme](https://user-images.githubusercontent.com/68486607/97162085-0cc0fa80-17c2-11eb-8dd2-7d5f2f1c6941.png)
 # どこ行くんや / DOKOIKUNYA
 
 
@@ -22,19 +23,18 @@ Googleで検索しても有名ドコロばかり、そんな時は DOKOIKUNYA　
 - お問い合わせ機能
 - 検索機能
 - お気に入り機能 など...
-- 詳しく:arrow_down: Googleスプレッドシートに遷移します
-	- https://drive.google.com/file/d/1QgnXnNK8BrsDgRyTyjt7oZRWgsGzhUC0/view?usp=sharing
+- 詳しく:arrow_down:
+	- <a href="https://drive.google.com/file/d/1QgnXnNK8BrsDgRyTyjt7oZRWgsGzhUC0/view?usp=sharing">アプリケーション機能一覧</a>
+	
 
 ## :page_facing_up:設計書
-- 画面遷移図:arrow_down: Google.pngに遷移します
-	- https://drive.google.com/file/d/1XZf0-EM84UGI1iyA-afiHEAz6XVq2TRV/view?usp=sharing
-- テーブル定義書:arrow_down: Googleスプレッドシートに遷移します
-	- https://drive.google.com/file/d/1_v4XURnUnW1X1ALHyS8v-RLDPJSnYFoo/view?usp=sharing
-- アプリケーション詳細設計書:arrow_down: Googleスプレッドシートに遷移します
-	- https://drive.google.com/file/d/1wBLxXJ39ATXsm3EDhfDlwXKRw_15icr2/view?usp=sharing
+- <a href="https://drive.google.com/file/d/1XZf0-EM84UGI1iyA-afiHEAz6XVq2TRV/view?usp=sharing">画面遷移図</a>
+- <a href="https://drive.google.com/file/d/1_v4XURnUnW1X1ALHyS8v-RLDPJSnYFoo/view?usp=sharing">テーブル定義書</a>
+- <a href="https://drive.google.com/file/d/1wBLxXJ39ATXsm3EDhfDlwXKRw_15icr2/view?usp=sharing">アプリケーション詳細設計書</a>
+	
 
 ## :computer:開発環境
-- OS：mac Catalina
+- OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
