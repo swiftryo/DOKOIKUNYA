@@ -27,7 +27,7 @@ Googleで検索しても有名ドコロばかり、そんな時は DOKOIKUNYA　
 
 ## :page_facing_up:設計書
 - 画面遷移図:arrow_down: Google.pngに遷移します
-	- https://drive.google.com/file/d/12dCO4seU4q084Vr1vqXpKJFwL4rikmi-/view?usp=sharing
+	- https://drive.google.com/file/d/1XZf0-EM84UGI1iyA-afiHEAz6XVq2TRV/view?usp=sharing
 - テーブル定義書:arrow_down: Googleスプレッドシートに遷移します
 	- https://drive.google.com/file/d/1_v4XURnUnW1X1ALHyS8v-RLDPJSnYFoo/view?usp=sharing
 - アプリケーション詳細設計書:arrow_down: Googleスプレッドシートに遷移します
