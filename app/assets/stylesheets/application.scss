@@ -105,6 +105,8 @@
 
 .text {
   background-color: rgba(128,128,128,0.1)
+  font
+
 }
 
 
@@ -179,128 +181,43 @@
   margin-bottom: 50px;
 }
 
+.pb-1{
+  padding-bottom: 10px;
+}
+.pb-2{
+  padding-bottom: 20px;
+}
+.pb-3{
+  padding-bottom: 30px;
+}
+.pb-4{
+  padding-bottom: 30px;
+}
+.pb-5{
+  padding-bottom: 30px;
+}
+
+.pt-1{
+  padding-top: 10px;
+}
+.pt-2{
+  padding-top: 20px;
+}
 .pt-3{
   padding-top: 30px;
 }
-.pb-1{
-  padding-bottom: 10px;
+.pt-4{
+  padding-top: 40px;
+}
+.pt-5{
+  padding-top: 50px;
 }
 
 // top-------------------------------------------
 
-@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
-@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
-
-$slider-length: 4;
-$radioBtn-size: 12px;
-$btn-color: #ccc;
-$active-color: #333;
-
-*, *:before, *:after { box-sizing: border-box;}
-
-html,body { height: 100%;}
-
-body {
-    font-family: sans-serif;
-    }
-
-.slider {
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-end;
-    justify-content: center;
-    
-    &__nav {
-        width: $radioBtn-size;
-        height: $radioBtn-size;
-        margin: 2rem $radioBtn-size;
-        border-radius: 50%;
-        z-index: 10;
-        outline: $radioBtn-size / 2 solid $btn-color;
-        outline-offset: $radioBtn-size / -2;
-        box-shadow: 
-            0 0 0 0 $active-color, 
-            0 0 0 0 rgba($active-color,0);
-        cursor: pointer;
-        appearance: none;
-        backface-visibility: hidden;
-
-        &:checked {
-            animation: check 0.5s linear forwards;
-
-            @for $i from 0 to $slider-length {
-                &:nth-of-type(#{$i+1}) {
-                ~ .slider__inner {
-                    transform: translateX((-100% * $i) / $slider-length);
-                    }
-                }
-            }
-        }
-    }
-    
-    &__inner {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100% * $slider-length;
-        height: 100%;
-        transition: all 1s ease-out;
-        display: flex;
-        flex-flow: row nowrap;
-    }
-    
-    &__contents {
-        height: 100%;
-        padding: 2rem;
-        text-align: center;
-        display: flex;
-        flex: 1;
-        flex-flow: column nowrap;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    &__image {
-        font-size: 2.7rem;
-    }
-
-    &__caption {
-        font-weight: 700;
-        margin: 2rem 0 1rem;
-        text-shadow: 0 1px 1px rgba(0,0,0,0.1);
-        text-transform: uppercase;
-    }
-
-    &__txt {
-        color: #999;
-        margin-bottom: 3rem;
-        max-width: 300px;
-    }
+.img-rounded{
+  border-radius: 50%;
 }
-
-
-
-// animation ---------------------------
-
-@keyframes check {
-    50% {
-        outline-color: $active-color;
-        box-shadow: 
-            0 0 0 $radioBtn-size $active-color, 
-            0 0 0 $radioBtn-size*3 rgba($active-color,0.2);
-    }
-    100% {
-        outline-color: $active-color;
-        box-shadow: 
-            0 0 0 0 $active-color, 
-            0 0 0 0 rgba($active-color,0);
-    }
-}
-
-
 
 // bth --------------------------------------
 
@@ -640,27 +557,55 @@ a.btn-engine-start-in span {
 }
 
 
+//about------------------------------------
 
-
-/*.about_row {
+.about_row {
  margin:30px 0px;
  display: flex;
  align-items: center;
  height:500px;
 }
 
-.about_image1 {
-  background-image: image-url("about_image1.jpg");
-  height :500px;
+.image1 {
+  background-image: image-url("image1.jpg");
+  height : 500px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
 }
-}
-.about_image2 {
-  background-image: image-url("about_image2.jpg");
-  height :500px;
-}
-.about_image3 {
-  background-image: image-url("about_image3.jpg");
-  height :500px;
-}*/
 
+.image2 {
+  background-image: image-url("image2.jpg");
+  height :500px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+}
+.image3 {
+  background-image: image-url("image3.jpg");
+  height :500px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+}
+.image4 {
+  background-image: image-url("image4.jpg");
+  height: 500px;
+  width: 100%;
+  color: white;
+  font-size: 50px;
+}
+.pimage4 {
+  color: rgba(0, 0, 0, 0.7);
+  text-shadow:3px 3px 0 #fff;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.bold {
+  font-weight:bold;
+}
 
