@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, :only => [:show, :index, :new, :create, :edit, :update]
   # before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   def index
-    @products = Product.page(params[:page]).reverse_order.per(5).includes(:user)
+    @products = Product.page(params[:page]).reverse_order.per(5).includes([:reviews])
   end
 
   def show
