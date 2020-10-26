@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
   end
 
   def new_guest
-    user = User.find_or_create_by!(email: 'ggguest@example.com', name: 'ゲストアカウント') do |user|
+    user = User.find_or_create_by!(email: 'gguuest@example.com', name: 'ゲストアカウント') do |user|
       user.password = SecureRandom.urlsafe_base64
     end
     sign_in user
