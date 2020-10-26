@@ -25,10 +25,6 @@ Googleで検索しても有名ドコロばかり、そんな時は DOKOIKUNYA　
 - 詳しく:arrow_down: Googleスプレッドシートに遷移します
 	- https://drive.google.com/file/d/1QgnXnNK8BrsDgRyTyjt7oZRWgsGzhUC0/view?usp=sharing
 
-
-## :page_facing_up:アプリケーション内で使用している技術一覧
-- 主要技術を記載する
-
 ## :page_facing_up:設計書
 - WBS:arrow_down: Googleスプレッドシートに遷移します
 	- https://docs.google.com/spreadsheets/d/15leQckufl-SkYrYr6IGnmhdnBXaXYHnbhrzsRbajOYw/edit?usp=sharing
@@ -50,21 +46,17 @@ Googleで検索しても有名ドコロばかり、そんな時は DOKOIKUNYA　
 ## :+1:使用素材
 - いらすとや 様
 	- https://www.irasutoya.com/
+- pixabay　様
+	- https://pixabay.com/
 
 
 ## :globe_with_meridians:URL
- https://00000000000000.comtest
+ http://dokoikunya.work/
 
 
 #### :couple: テストアカウント
 - 会員
-	- :id: test@yahoo.co.jp
-	- :secret: testtest
-
-- 管理者権限持ち
-	- :id: test1@yahoo.co.jp
-	- :secret: testtest
-
+	- ヘッダー、TOPページ下、ゲストログインからお願いします。
 
 ## :bust_in_silhouette:作成者
 White GUNDAM<br>
