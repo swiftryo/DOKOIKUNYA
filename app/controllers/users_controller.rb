@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, :only => [:show]
   def index
-    @users = User.page(params[:page]).reverse_order.per(8)
+    @users = User.page(params[:page]).reverse_order.per(6)
   end
 
   def edit
