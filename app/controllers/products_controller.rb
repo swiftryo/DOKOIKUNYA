@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!, :only => [:show, :index, :new, :create, :edit, :update]
   # before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   def index
     @products = Product.page(params[:page]).reverse_order.per(6).includes(:user)
@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   end
 
   def top
-    @recommendation = Product.where(status: "true" ).limit(4).order(created_at: :desc)
+    @recommendation = Product.where(status: "true" ).limit(8).order(created_at: :desc)
 
   end
 

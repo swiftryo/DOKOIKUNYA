@@ -4,8 +4,7 @@
 <!-- ビデオ -->
 <div class="wrap-video">
   <div class="text">
-    <p class="headline"><b>Live every moment as not to regret
-what you are about to do.<b></p>
+    <p class="headline"><b><ruby>DOKOIKUNYA<rt>どこ行くんや</rt></ruby></b></p>
   </div>
   <video src="videos/video.mp4" muted autoplay loop></video>
 </div>
@@ -13,7 +12,7 @@ what you are about to do.<b></p>
 <div class="container">
     <% if user_signed_in? %>
     <div class="row">
-        <h3 class="New">NEW SPOT</h3>
+        <h3 class="New">SPOT</h3>
         <div class="col-xs-12">
             <% @recommendation.each do |product| %>
             <div class="col-xs-3">
@@ -24,38 +23,12 @@ what you are about to do.<b></p>
                 <% end %>
             </div>
             <% end %>
-            <p class="pull-right btn btn-default"><%= link_to "Read more▶️", products_path %></p>
+            <p class="pull-right btn btn02"><%= link_to "Read more▶️", products_path %></p>
         </div>
     </div>
     <% end %>
 </div>
-
-
- <div class="slider">
-  <input class="slider__nav" type="radio" name="slider" title="slide1" checked="checked"/>
-  <input class="slider__nav" type="radio" name="slider" title="slide2"/>
-  <input class="slider__nav" type="radio" name="slider" title="slide3"/>
-  <input class="slider__nav" type="radio" name="slider" title="slide4"/>
-  <div class="slider__inner">
-    <div class="slider__contents"><i class="slider__image fa fa-codepen"></i>
-      <h2 class="slider__caption">codepen</h2>
-      <p class="slider__txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!</p>
-    </div>
-    <div class="slider__contents"><i class="slider__image fa fa-newspaper-o"></i>
-      <h2 class="slider__caption">newspaper-o</h2>
-      <p class="slider__txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!</p>
-    </div>
-    <div class="slider__contents"><i class="slider__image fa fa-television"></i>
-      <h2 class="slider__caption">television</h2>
-      <p class="slider__txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!</p>
-    </div>
-    <div class="slider__contents"><i class="slider__image fa fa-diamond"></i>
-      <h2 class="slider__caption">diamond</h2>
-      <p class="slider__txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!</p>
-    </div>
-  </div>
-</div>
-
+ 
 
 
 <!-- スタート -->
@@ -67,3 +40,4 @@ START<br>ゲスト<br><span>ログイン</span>
 <% end %>
 </div>
 <% end %>
+
