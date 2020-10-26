@@ -6,8 +6,11 @@
       場所が閲覧できなくなります。<br>
       退会する場合は、「退会する」をクリックしてください。<br>
       </p>
+      <% if current_user.id == 3 %>
+      <% else %>
       <%= link_to "退会しない",user_path(current_user.id), class: "btn01" %>
       <%= link_to "退会する", users_usubscribe_path, method: :patch, "data-confirm" => "本当に退会するの？", class: "btn02" %>
+      <% end %>
     </div>
   </div>
 </div>
