@@ -1,6 +1,6 @@
-![readme](https://user-images.githubusercontent.com/68486607/97162085-0cc0fa80-17c2-11eb-8dd2-7d5f2f1c6941.png)
-# どこ行くんや / DOKOIKUNYA
 
+# <a href="http://dokoikunya.work/">どこ行くんや / DOKOIKUNYA</a>
+![readme](https://user-images.githubusercontent.com/68486607/97162085-0cc0fa80-17c2-11eb-8dd2-7d5f2f1c6941.png)
 
 ## :bicyclist:サイト概要
 自分の行った場所を他の人と共有し、新しい場所と出会えるSNSサービスです。
