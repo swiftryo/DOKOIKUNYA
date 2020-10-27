@@ -16,6 +16,9 @@
 						<div id="favorites_buttons_<%= product.id %>">
 							<%= render partial: 'favorites/favorite', locals: { product: product} %>
           				</div>
+          				<div>
+          					<%= product.prefecture_code %>
+          				</div>
 					</div>
 
 					<div class="col-xs-4">
