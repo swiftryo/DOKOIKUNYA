@@ -70,7 +70,6 @@ class UsersController < ApplicationController
     @users = @user.followings.all
   end
 
-
   private
   def user_params
     params.require(:user).permit(:name, :prefecture_code, :email, :biography, :profile_image)
@@ -83,3 +82,5 @@ class UsersController < ApplicationController
     end
   end
 end
+
+

@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
   def index
   	@product = Product.find(params[:product_id])
-    @reviews = @product.reviews
+    @reviews = @product.reviews.includes([:user])
   end
 
   def create
