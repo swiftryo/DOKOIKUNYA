@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!, :only => [:show, :index, :new, :create, :edit, :update]
   # before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   def index
-    @products = Product.page(params[:page]).reverse_order.per(6).includes(:user)
+    @products = Product.page(params[:page]).reverse_order.per(5).includes([:reviews])
   end
 
   def show
@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   end
 
   def top
-    @recommendation = Product.where(status: "true" ).limit(4).order(created_at: :desc)
+    @recommendation = Product.where(status: "true" ).limit(8).order(created_at: :desc)
 
   end
 
@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
   end
 
   def new_guest
-    user = User.find_or_create_by!(email: 'guest@example.com', name: 'test') do |user|
+    user = User.find_or_create_by!(email: 'gguuest@example.com', name: 'ゲストアカウント') do |user|
       user.password = SecureRandom.urlsafe_base64
     end
     sign_in user

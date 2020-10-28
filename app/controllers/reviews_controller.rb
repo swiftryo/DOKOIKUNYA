@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
   def index
   	@product = Product.find(params[:product_id])
-    @reviews = @product.reviews
+    @reviews = @product.reviews.includes([:user])
   end
 
   def create
@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to product_reviews_path(@review.product)
     else
-      @product = Product.find(params[:id])
+      @product = Product.find(params[:product_id])
       render "products/show"
     end
   end

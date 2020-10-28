@@ -18,7 +18,6 @@
 @import "bootstrap";
 
 
-
 // お気に入り-----------------
 .glyphicon-heart {
   color: #FF66FF
@@ -104,30 +103,36 @@
   font-size:20px;
 }
 
+.text {
+  background-color: rgba(128,128,128,0.1)
+  font
+
+}
+
 
 // kaminari-------------------------------------
 .pagiWrapper{
    text-align:center;
 }
 /*ページネーション自体のデザイン*/
-.pagination>li>a {          
+.pagination>li>a {
   border: none;     /*枠線をなくす*/
   color: #696969;   /*文字の色を変える*/
 }
 
 /* 表示しているページ番号のデザイン */
-.pagination>.active>a {     
+.pagination>.active>a {
   background: #93c9ff;     /*背景の色を変える*/
   border-radius: 15px;     /*角を丸くする*/
 }
 
 /*ホバー時のデザイン*/
-.pagination>li>a:hover {        
+.pagination>li>a:hover {
   border-radius: 15px;    /*角を丸くする*/
 }
 
 
-//footer----------------------------------------
+// margin----------------------------------------
 .mt-1{
   margin-top: 10px;
 }
@@ -160,124 +165,447 @@
   margin-left: 50px;
 }
 
-//top-------------------------------------------
+.mb-1{
+  margin-bottom: 10px;
+}
+.mb-2{
+  margin-bottom: 20px;
+}
+.mb-3{
+  margin-bottom: 30px;
+}
+.mb-4{
+  margin-bottom: 40px;
+}
+.mb-5{
+  margin-bottom: 50px;
+}
 
-@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
-@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+.pb-1{
+  padding-bottom: 10px;
+}
+.pb-2{
+  padding-bottom: 20px;
+}
+.pb-3{
+  padding-bottom: 30px;
+}
+.pb-4{
+  padding-bottom: 30px;
+}
+.pb-5{
+  padding-bottom: 30px;
+}
 
-$slider-length: 4;
-$radioBtn-size: 12px;
-$btn-color: #ccc;
-$active-color: #333;
-//---------------------------------------------------
+.pt-1{
+  padding-top: 10px;
+}
+.pt-2{
+  padding-top: 20px;
+}
+.pt-3{
+  padding-top: 30px;
+}
+.pt-4{
+  padding-top: 40px;
+}
+.pt-5{
+  padding-top: 50px;
+}
 
-*, *:before, *:after { box-sizing: border-box;}
+// top-------------------------------------------
 
-html,body { height: 100%;}
+.img-rounded{
+  border-radius: 50%;
+}
 
-body {
-    font-family: sans-serif;
-    }
+// bth --------------------------------------
 
-.slider {
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-end;
-    justify-content: center;
-    
-    &__nav {
-        width: $radioBtn-size;
-        height: $radioBtn-size;
-        margin: 2rem $radioBtn-size;
-        border-radius: 50%;
-        z-index: 10;
-        outline: $radioBtn-size / 2 solid $btn-color;
-        outline-offset: $radioBtn-size / -2;
-        box-shadow: 
-            0 0 0 0 $active-color, 
-            0 0 0 0 rgba($active-color,0);
-        cursor: pointer;
-        appearance: none;
-        backface-visibility: hidden;
+.btn-gradient-3d-simple {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #ffffff;
+  background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #5e7fca;
+}
 
-        &:checked {
-            animation: check 0.5s linear forwards;
+.btn-gradient-3d-simple:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
 
-            @for $i from 0 to $slider-length {
-                &:nth-of-type(#{$i+1}) {
-                ~ .slider__inner {
-                    transform: translateX((-100% * $i) / $slider-length);
-                    }
-                }
-            }
-        }
-    }
-    
-    &__inner {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100% * $slider-length;
-        height: 100%;
-        transition: all 1s ease-out;
-        display: flex;
-        flex-flow: row nowrap;
-    }
-    
-    &__contents {
-        height: 100%;
-        padding: 2rem;
-        text-align: center;
-        display: flex;
-        flex: 1;
-        flex-flow: column nowrap;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    &__image {
-        font-size: 2.7rem;
-    }
+.btn-gradient-1d-simple {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #ffffff;
+  background-image: linear-gradient(#FFC107 0%, #ff8b5f 100%);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #c58668;
+}
 
-    &__caption {
-        font-weight: 700;
-        margin: 2rem 0 1rem;
-        text-shadow: 0 1px 1px rgba(0,0,0,0.1);
-        text-transform: uppercase;
-    }
+.btn-gradient-1d-simple:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
 
-    &__txt {
-        color: #999;
-        margin-bottom: 3rem;
-        max-width: 300px;
-    }
+.btn-gradient-2d-simple {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #ffffff;
+  background-image: linear-gradient(#7CFC00 0%, #8cd460 100%);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #32CD32;
+}
+
+.btn-gradient-2d-simple:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+
+.btn-gradient-4d-simple {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #ffffff;
+  background-image: linear-gradient(#CC0033 0%, #CC0000 100%);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #990000;
+}
+
+.btn-gradient-4d-simple:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+
+.btn01 {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #000;
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: bold;
+  line-heigt: 1.2em;
+  -webkit-box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
+  box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
+  -webkit-transition: .12s;
+  transition: .12s;
+}
+.btn01:hover {
+  background: #ffffff;
+  border: solid 2px #000;
+  color: #000;
+  opacity: 0.8;
+}
+
+.btn02 {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #FFF;
+  border-radius: 4px;
+  color: #000;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: bold;
+  line-heigt: 1.2em;
+  -webkit-box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
+  box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
+  -webkit-transition: .12s;
+  transition: .12s;
+}
+.btn02:hover {
+  background: #000;
+  border: solid 2px #000;
+  color: #FFF;
+  opacity: 0.8;
 }
 
 
+// sns bth ----------------------------------------
 
-// animation ---------------------------
+.btn-social-circle {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #FFF;
+  width: 50px;
+  height: 50px;
+  line-height: 30px;
+  padding: 5px;
+  font-size: 25px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: inset 0 2px 0px rgba(255, 255, 255, 0.25), inset 0 -2px 0px rgba(0, 0, 0, 0.18);
+  transition: .2s;
+}
+.btn-social-circle .fa {
+  line-height: 30px;
+}
+.btn-social-circle:hover {
+  box-shadow: none;
+}
 
-@keyframes check {
-    50% {
-        outline-color: $active-color;
-        box-shadow: 
-            0 0 0 $radioBtn-size $active-color, 
-            0 0 0 $radioBtn-size*3 rgba($active-color,0.2);
-    }
-    100% {
-        outline-color: $active-color;
-        box-shadow: 
-            0 0 0 0 $active-color, 
-            0 0 0 0 rgba($active-color,0);
-    }
+.btn-social-circle--twitter {
+  background: #1da1f3;
+  border: solid 5px #1da1f3;
+}
+
+.btn-social-circle--facebook {
+  background: #3b75d4;
+  border: solid 5px #3b75d4;
+}
+
+.btn-social-circle--pocket {
+  background: #ef4d4d;
+  border: solid 5px #ef4d4d;
+}
+
+.btn-social-circle--feedly {
+  background: #7ece46;
+  border: solid 5px #7ece46;
 }
 
 
-.text {
-  background-color: rgba(128,128,128,0.1)
+// foter-----------------------------------------------
+
+footer {
+  background-color: #000;
 }
 
+.gundam {
+  color: #fff;
+}
+
+.robot {
+  color: #000;
+}
+
+
+// プッシュスタート------------------------------------------------
+
+.btn-engine-start {
+  position: relative;
+
+  width: 145px;
+  height: 145px;
+  margin: 0 auto;
+
+  border-radius: 50%;
+  background: white;
+  background: -webkit-linear-gradient(
+    315deg,
+    white 0%,
+    white 22%,
+    #ddd 44%,
+    #a5a5a5 52%,
+    black 100%
+  );
+  background: linear-gradient(
+    135deg,
+    white 0%,
+    white 22%,
+    #ddd 44%,
+    #a5a5a5 52%,
+    black 100%
+  );
+  -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-engine-start:before {
+  position: absolute;
+  top: 7.5px;
+  left: 7.5px;
+
+  display: block;
+
+  width: 130px;
+  height: 130px;
+
+  content: "";
+
+  border-radius: 50%;
+  background: #515151;
+  background: -webkit-linear-gradient(
+    -45deg,
+    #515151 0%,
+    #515151 19%,
+    #ededed 50%,
+    white 77%,
+    white 100%
+  );
+  background: -webkit-linear-gradient(
+    315deg,
+    #515151 0%,
+    #515151 19%,
+    #ededed 50%,
+    white 77%,
+    white 100%
+  );
+  background: linear-gradient(
+    135deg,
+    #515151 0%,
+    #515151 19%,
+    #ededed 50%,
+    white 77%,
+    white 100%
+  );
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#515151', endColorstr='#ffffff', GradientType=1);
+}
+
+.btn-engine-start:hover a.btn-engine-start-in:before {
+  top: 20px;
+
+  background: #61c419;
+  -webkit-box-shadow: 0 0 6px rgba(97, 196, 25, 0.3);
+  box-shadow: 0 0 6px rgba(97, 196, 25, 0.3);
+}
+
+.btn-engine-start:hover a.btn-engine-start-in {
+  padding: 37px 0 0;
+
+  color: #b4e391;
+  -webkit-box-shadow: inset 0 1px 1px black, 0 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 1px 1px black, 0 1px 2px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 6px rgba(97, 196, 25, 0.3), 0 0 6px rgba(97, 196, 25, 0.3);
+}
+
+a.btn-engine-start-in {
+  font-size: 14px;
+  line-height: 1.2;
+
+  position: absolute;
+  top: 18px;
+  left: 18px;
+
+  width: 109px;
+  height: 109px;
+  padding: 35px 0 0;
+
+  color: #fff;
+  border-radius: 50%;
+  background: #959595;
+  background: -webkit-linear-gradient(
+    -45deg,
+    #959595 0%,
+    #0d0d0d 46%,
+    #010101 50%,
+    #0a0a0a 69%,
+    #1b1b1b 100%
+  );
+  background: -webkit-linear-gradient(
+    315deg,
+    #959595 0%,
+    #0d0d0d 46%,
+    #010101 50%,
+    #0a0a0a 69%,
+    #1b1b1b 100%
+  );
+  background: linear-gradient(
+    135deg,
+    #959595 0%,
+    #0d0d0d 46%,
+    #010101 50%,
+    #0a0a0a 69%,
+    #1b1b1b 100%
+  );
+  -webkit-box-shadow: inset 0 2px 2px white, 0 2px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 2px 2px white, 0 2px 4px rgba(0, 0, 0, 0.5);
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#959595', endColorstr='#1b1b1b', GradientType=1);
+}
+
+a.btn-engine-start-in:before {
+  position: absolute;
+  top: 18px;
+  left: calc(50% - 13px);
+
+  width: 26px;
+  height: 8px;
+
+  content: "";
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+
+  border-radius: 10px;
+  background: green;
+  background: #555;
+}
+
+a.btn-engine-start-in span {
+  font-size: 10px;
+}
+
+
+//about------------------------------------
+
+.about_row {
+ margin:30px 0px;
+ display: flex;
+ align-items: center;
+ height:500px;
+}
+
+.image1 {
+  background-image: image-url("image1.jpg");
+  height : 500px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+}
+
+.image2 {
+  background-image: image-url("image2.jpg");
+  height :500px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+}
+.image3 {
+  background-image: image-url("image3.jpg");
+  height :500px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+}
+.image4 {
+  background-image: image-url("image4.jpg");
+  height: 500px;
+  width: 100%;
+  color: white;
+  font-size: 50px;
+}
+.pimage4 {
+  color: rgba(0, 0, 0, 0.7);
+  text-shadow:3px 3px 0 #fff;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.bold {
+  font-weight:bold;
+}
 

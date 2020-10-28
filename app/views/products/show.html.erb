@@ -30,8 +30,8 @@
 					現在はもうありません
 				<% end %><br><br>
 				<p>
-					<%= link_to "場所編集", edit_product_path(@product), class:"btn btn-primary" %>
-					<%= link_to "場所削除", product_path(@product), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %>
+					<%= link_to "場所編集", edit_product_path(@product), class:"btn-gradient-3d-simple" %>
+					<%= link_to "場所削除", product_path(@product), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn-gradient-1d-simple" %>
 				</p>
 			</div>
 			<!-- 星レビュー -->
@@ -56,5 +56,5 @@
 </div>
 
 <%= link_to :back do %>
-  <button class="btn-info">戻る</button>
+  <button class="btn02">戻る</button>
 <% end %>
